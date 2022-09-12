@@ -15,6 +15,7 @@
 ![Dashboard-1](img/dashboard-1.PNG)
 ![Dashboard-2](img/dashboard-2.PNG)
 ### - **Printing page**
+#### Right click to print
 ![Print-page](img/print-page.PNG)
 ### - **Telegram report**
 ![Print-page](img/telegram.png)
