@@ -59,7 +59,7 @@
 ### - Select all the files in this repository
 ![files](img/select-files.PNG)
 ### - remove all the files in the **[htdocs](C:\xampp\htdocs)** folder located inside **C:\xampp\htdocs** and paste the files inside
-![files](img/paste-files.PNG)
+![files](img/paste-files.png)
 
 # **4. Setup Mikrotik**
 ### add the **on login** and **on logout** script in to your hotspot profile in order for the dashboard to display the informations
@@ -169,7 +169,7 @@
 
 # **5. Done Congrats!**
 ## You can now access the **dashboard** using the **admin** button or typing **[localhost](http://localhost/)** in your browser
-![files](img/open-dashboard.PNG)
+![files](img/open-dashboard.png)
 
     Username: admin
     Password: admin123
