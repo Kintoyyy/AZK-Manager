@@ -140,6 +140,10 @@
         :if ($cmac!=$amac) do={  /ip hotspot active remove [/ip hotspot active find mac-address="$amac"]; }
         }
     }
+    
+## Optional onlogin script with With [Genman](https://genman.projectdorsu.com/) online juanfi sales API
+
+### [Genman-api-script](config/genman-api.md)
 
 ## **On logout Script**
 
