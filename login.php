@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
   if (empty($username_err) && empty($password_err)) {
     $sql = 'SELECT id, username, password FROM users WHERE username = ?';
-    if ($stmt = $mysql_db->prepare($sql)) {
+    if ($stmt = $db->prepare($sql)) {
       $param_username = $username;
       $stmt->bind_param('s', $param_username);
       if ($stmt->execute()) {
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
       $stmt->close();
     }
-    $mysql_db->close();
+    $db->close();
   }
 }
 ?>

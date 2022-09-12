@@ -19,7 +19,13 @@ $SHARE = 70; //Max 100, examples: 70=70%, 50=50%
 
 
 //Dont touch this
-$mysql_db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME, DB_PORT);
-if (!$mysql_db) {
-	die("Error: Unable to connect " . $mysql_db->connect_error);
+$db = new PDO('mysql:host='. DB_SERVER . ';dbname='. DB_NAME . ';charset=utf8',DB_USERNAME, DB_PASSWORD);
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$db->setAttribute (PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db->exec("set names utf8");
+
+// $mysql_db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME, DB_PORT);
+if (!$db) {
+	die("Error: Unable to connect " . $db->connect_error);
 }
