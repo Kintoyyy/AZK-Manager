@@ -1,0 +1,68 @@
+body {
+    color: #000;
+    background-color: #fff;
+    font-size: 14px;
+    font-family: "Helvetica", arial, sans-serif;
+    margin: 0;
+    -webkit-print-color-adjust: exact
+}
+
+table.voucher {
+    display: inline-block;
+    border: 2px solid #000;
+    margin: 2px
+}
+
+@page {
+    size: auto;
+    margin-left: 7mm;
+    margin-right: 3mm;
+    margin-top: 9mm;
+    margin-bottom: 3mm
+}
+
+@media print {
+    table,
+    td,
+    tr {
+        page-break-after: auto
+    }
+    td,
+    tr {
+        page-break-inside: avoid
+    }
+    thead {
+        display: table-header-group
+    }
+    tfoot {
+        display: table-footer-group
+    }
+}
+
+.qrc {
+    width: 30px;
+    height: 30px;
+    margin-top: 1px
+}
+
+.rotate {
+    vertical-align: bottom;
+    text-align: center
+}
+
+.rotate span {
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap
+}
+
+.qrcode {
+    height: 70px;
+    width: 70px
+}
+
+label {
+    font-weight: 700
+}
