@@ -17,7 +17,7 @@
 ### - **Printing page**
 ![Print-page](img/print-page.PNG)
 ### - **Telegram report**
-![Print-page](img/telegram.PNG)
+![Print-page](img/telegram.png)
 
 # **1. Setup**
 ## Edit the config file first
@@ -47,7 +47,7 @@
 ### - Start the **Apache** And **MySQL** servers
 ![server-setup](img/xampp.PNG)
 ### - Click the **Admin** button of MySQL to access the phpmyadmin
-![db-setup](img/xampp-sql.PNG)
+![db-setup](img/xampp-sql.png)
 ### - Click on **New** and **Create** database, name it **JuanFi**
 ![db-setup](img/create-db.PNG)
 ### - Select the **Juanfi** database and import the **[users.sql](/config/users.sql)**
