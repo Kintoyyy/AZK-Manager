@@ -13,7 +13,7 @@ define('MT_PASSWORD', 'Development'); //Mikrotik Password
 define('MT_PORT', '8728'); //Mikrotik port
 //Settings
 $CURRENCY = '₱';
-$INTERFACE = "bridge_LAN"; //Interface Data Usage
+$INTERFACE = "ether1"; //Interface Data Usage
 $REFRESH = 15000; //Topstats refreshh 15000 = 15sec
 $SHARE = 70; //Max 100, examples: 70=70%, 50=50%
 
