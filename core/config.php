@@ -8,7 +8,7 @@ define('DB_PORT', '3306');//Db port
 
 // Mikrotik credentials
 define('MT_SERVER', '192.168.2.114');//Mikrotik IP
-define('MT_USERNAME', 'genman');//Mikrotik Username
+define('MT_USERNAME', 'admin');//Mikrotik Username
 define('MT_PASSWORD', 'g3nm@n'); //Mikrotik Password
 define('MT_PORT', '8728'); //Mikrotik port
 //Settings
