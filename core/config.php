@@ -25,7 +25,8 @@ $db->setAttribute (PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->exec("set names utf8");
 
-// $mysql_db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME, DB_PORT);
+
+
 if (!$db) {
 	die("Error: Unable to connect " . $db->connect_error);
 }
