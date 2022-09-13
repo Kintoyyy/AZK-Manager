@@ -1,14 +1,12 @@
-<?php require_once('core/initialize.php'); ?>
 <?php
-
+session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    redirect_to('login.php');
+    header('location: login.php');
     exit;
 }
-
+require_once 'config/config.php';
 $new_password = $confirm_password = '';
 $new_password_err = $confirm_password_err = '';
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty(trim($_POST['new_password']))) {
         $new_password_err = 'Please enter the new password.';
@@ -27,10 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     if (empty($new_password_err) && empty($confirm_password_err)) {
         $sql = 'UPDATE users SET password = ? WHERE id = ?';
-        if ($stmt = $db->prepare($sql)) {
+        if ($stmt = $mysql_db->prepare($sql)) {
             $param_password = password_hash($new_password, PASSWORD_DEFAULT);
             $param_id = $_SESSION["id"];
-            $stmt->bindParam("si", $param_password, $param_id);
+            $stmt->bind_param("si", $param_password, $param_id);
             if ($stmt->execute()) {
                 session_destroy();
                 header("location: login.php");
@@ -38,9 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
-            
+            $stmt->close();
         }
-        
+        $mysql_db->close();
     }
 }
 ?>

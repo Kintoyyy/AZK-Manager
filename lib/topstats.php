@@ -1,7 +1,6 @@
-<?php require_once('../core/initialize.php'); ?>
 <?php
 require_once "../api/routeros_api.class.php";
-
+require_once "../config/config.php";
 
 $API = new RouterosAPI();
 
@@ -24,7 +23,7 @@ $pppoeActive = $API->comm("/ppp/active/print", array("count-only" => ""));
 $pppoeUsers = $API->comm("/ppp/secret/print", array("count-only" => ""));
 
 $getpMonthly = $API->comm("/system/script/print", array("?name" => "pppoemonthlyincome"));
-$monthlyPSales = $getpMonthly !== false ?  $getpMonthly['0'] : 0;
+$monthlyPSales = $getpMonthly['0'];
 
 //get sales
 $getMonthly = $API->comm("/system/script/print", array("?name" => "monthlyincome"));

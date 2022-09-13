@@ -1,15 +1,13 @@
-<?php require_once('core/initialize.php'); ?>
 <?php
+session_start();
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
   header("location: index.php");
   exit;
 }
-
-
+require_once "config/config.php";
 $username = $password = '';
 $username_err = $password_err = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  
   if (empty(trim($_POST['username']))) {
     $username_err = 'Please enter username.';
   } else {
@@ -20,44 +18,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   } else {
     $password = trim($_POST['password']);
   }
-
-  
   if (empty($username_err) && empty($password_err)) {
-    $sql = 'SELECT * FROM users WHERE username = ?';
-    $stmt = $db->prepare($sql);      
-    $result = $stmt->execute([$username]);
-      if($result){
-          $user = $stmt->fetch(PDO::FETCH_ASSOC);
-          if($user){
-              if (password_verify($password, $user['password'])) {
-              
-                $_SESSION['loggedin'] = true;                
-                $_SESSION['id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                redirect_to('login.php');
-    
-              }else{
-                echo 'Username/Password incorrect.';
-              }
-          }else{
-            echo 'No user found.';
-          }          
-          
-      }else{
-        echo 'Something went wrong. Please try again.';
-      }     
-  
-  }else{
-    die('No username and password');
+    $sql = 'SELECT id, username, password FROM users WHERE username = ?';
+    if ($stmt = $mysql_db->prepare($sql)) {
+      $param_username = $username;
+      $stmt->bind_param('s', $param_username);
+      if ($stmt->execute()) {
+        $stmt->store_result();
+        if ($stmt->num_rows == 1) {
+          $stmt->bind_result($id, $username, $hashed_password);
+          if ($stmt->fetch()) {
+            if (password_verify($password, $hashed_password)) {
+              session_start();
+              $_SESSION['loggedin'] = true;
+              $_SESSION['id'] = $id;
+              $_SESSION['username'] = $username;
+              header('location: index.php');
+            } else {
+              $password_err = 'Invalid password';
+            }
+          }
+        } else {
+          $username_err = "Username does not exists.";
+        }
+      } else {
+        echo "Oops! Something went wrong please try again";
+      }
+      $stmt->close();
+    }
+    $mysql_db->close();
   }
 }
-
-
-// $password = "1234";
-
-// $password = password_hash($password, PASSWORD_DEFAULT);
-// echo $password;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,43 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       </form>
       
-      
     </section>
-
-
-    <!-- <section class="container wrapper py-lg-5 sm" style="max-width: 500px;">
-      <div class="text-center">       
-        <h2 class="display-6 pt-2">Setup Connection</h2>
-      </div>
-
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-        <div class="form-group mb-3 ">
-          <label for="username">Mikrotik IP Address</label>
-          <input type="text" name="ipaddress" id="ipaddress" class="form-control" value="">
-          <span class="help-block"></span>
-        </div>
-        <div class="form-group mb-3 ">
-          <label for="username">Mikrotik Username</label>
-          <input type="text" name="username" id="username" class="form-control" value="<?php echo $username ?>">
-          <span class="help-block"></span>
-        </div>
-        <div class="form-group mb-3 <?php (!empty($username_err)) ? 'has_error' : ''; ?>">
-          <label for="username">Mikrotik Password</label>
-          <input type="password" name="password" id="password" class="form-control" value="">
-          <span class="help-block"><?php echo $username_err; ?></span>
-        </div>
-        <div class="form-group mb-3 <?php (!empty($username_err)) ? 'has_error' : ''; ?>">
-          <label for="username">Mikrotik Port</label>
-          <input type="text" name="port" id="port" class="form-control" value="8728" readonly>
-          <span class="help-block"><?php echo $username_err; ?></span>
-        </div>
-        <div class="form-group d-grid gap-2">
-          <input type="submit" class="btn col btn-outline-primary" value="Connect">
-        </div>
-      </form>
-      
-      
-    </section> -->
   </main>
 </body>
 
