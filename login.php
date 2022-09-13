@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           if($user){
               if (password_verify($password, $user['password'])) {
               
-                $_SESSION['loggedin'] = true;
+                $_SESSION['loggedin'] = true;                
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 redirect_to('login.php');
@@ -95,7 +95,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       </form>
       
+      
     </section>
+
+
+    <!-- <section class="container wrapper py-lg-5 sm" style="max-width: 500px;">
+      <div class="text-center">       
+        <h2 class="display-6 pt-2">Setup Connection</h2>
+      </div>
+
+      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <div class="form-group mb-3 ">
+          <label for="username">Mikrotik IP Address</label>
+          <input type="text" name="ipaddress" id="ipaddress" class="form-control" value="">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group mb-3 ">
+          <label for="username">Mikrotik Username</label>
+          <input type="text" name="username" id="username" class="form-control" value="<?php echo $username ?>">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group mb-3 <?php (!empty($username_err)) ? 'has_error' : ''; ?>">
+          <label for="username">Mikrotik Password</label>
+          <input type="password" name="password" id="password" class="form-control" value="">
+          <span class="help-block"><?php echo $username_err; ?></span>
+        </div>
+        <div class="form-group mb-3 <?php (!empty($username_err)) ? 'has_error' : ''; ?>">
+          <label for="username">Mikrotik Port</label>
+          <input type="text" name="port" id="port" class="form-control" value="8728" readonly>
+          <span class="help-block"><?php echo $username_err; ?></span>
+        </div>
+        <div class="form-group d-grid gap-2">
+          <input type="submit" class="btn col btn-outline-primary" value="Connect">
+        </div>
+      </form>
+      
+      
+    </section> -->
   </main>
 </body>
 

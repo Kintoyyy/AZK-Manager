@@ -233,12 +233,12 @@ function getTotalCustomersServed($userid){
 	return false;	
 }
 
-function getApprovedAdjustment($empcode, $tdate){
+function getDevicesById($id){
 	global $db;
-	$sql = 'SELECT * FROM tbl_scannningadjustment WHERE empcode = ? AND targetdate = ? LIMIT 1';
+	$sql = 'SELECT * FROM devices WHERE id = ? LIMIT 1';
 	$stmt = $db->prepare($sql);
 	
-	$res = $stmt->execute([$empcode, $date]);
+	$res = $stmt->execute([$id]);
 	if($res){
 		$data = $stmt->fetch(PDO::FETCH_ASSOC);
 		return $data;
