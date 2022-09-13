@@ -39,7 +39,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'Kintoyyy', '$2y$10$vIRtKn5ExJGKi3VZruCNMuS0/Z1UOGQtkg6vAgw0wLduHIwDrlrtG', '2022-09-05 20:33:42');
+(1, 'admin', '$2y$10$vIRtKn5ExJGKi3VZruCNMuS0/Z1UOGQtkg6vAgw0wLduHIwDrlrtG', '2022-09-05 20:33:42');
 
 --
 -- Indexes for dumped tables
