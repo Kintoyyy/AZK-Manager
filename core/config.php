@@ -7,9 +7,9 @@ define('DB_NAME', 'JuanFi');//Db name
 define('DB_PORT', '3306');//Db port
 
 // Mikrotik credentials
-define('MT_SERVER', '10.15.0.1');//Mikrotik IP
-define('MT_USERNAME', 'Development');//Mikrotik Username
-define('MT_PASSWORD', 'Development'); //Mikrotik Password
+define('MT_SERVER', '192.168.2.114');//Mikrotik IP
+define('MT_USERNAME', 'admin');//Mikrotik Username
+define('MT_PASSWORD', 'g3nm@n'); //Mikrotik Password
 define('MT_PORT', '8728'); //Mikrotik port
 //Settings
 $CURRENCY = '₱';
@@ -25,7 +25,8 @@ $db->setAttribute (PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->exec("set names utf8");
 
-// $mysql_db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME, DB_PORT);
+
+
 if (!$db) {
 	die("Error: Unable to connect " . $db->connect_error);
 }
