@@ -38,7 +38,7 @@
 
     //Settings
     $CURRENCY = '₱';                        //Currency
-    $INTERFACE = "ether-1";                 //Interface Data Usage
+    $INTERFACE = "ether-1";                 //Interface Data Usage, don't forget to set this to avoid errors
     $REFRESH = 15000;                       //Topstats refreshh 15000 = 15sec
     $SHARE = 50;                            //Max 100, examples: 70=70%, 50=50%
 
@@ -179,6 +179,13 @@
     Username: admin
     Password: admin123
     //you can change this on the reset password page
+
+    Note:If you screen is blank please create a dummy hotspot user
+    
+    name:dummy
+    pass:blank
+    Profile:default
+    comment:0m,0,0,JuanFi
 
 
 > ## **This Voucher Generator/manager Only works for [ivanalayan15/JuanFi](https://github.com/ivanalayan15/JuanFi) system**
