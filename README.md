@@ -6,6 +6,7 @@
 - Reseller/Vendo Sales Report and Charts
 - Seller Customizations
 - Custom Currency 
+### **Tested only on RouterOS v6.4x.xx**
 ### **Docker support soon!**
 
 # **Screenshots**
