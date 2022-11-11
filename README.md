@@ -1,5 +1,8 @@
 # **JuanFi Manager**
 
+**[View Static website](https://kintoyyy.github.io/AZK-Manager/example/main.html)**
+
+
 ### **Features:** 
 - Voucher Generation Using API
 - Basic JuanFi Dashboard
