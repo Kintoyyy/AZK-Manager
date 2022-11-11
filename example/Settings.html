@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://10.15.0.5/index.php?page=settings -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZK Manager V2</title>
+    <link rel="icon" type="image/x-icon" href="./src/kint.ico">
+    <link rel="stylesheet" href="./src/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/all.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/custom.css" type="text/css">
+    <link href="./src/all.min(1).css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet">
+    <script src="./src/jquery-3.6.1.min.js.download"></script>
+    <script src="./src/bootstrap.bundle.min.js.download"></script>
+    <script src="./src/bootstrap.min.js.download"></script>
+    <script src="./src/chart.min.js.download"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <style>
+        ::-webkit-scrollbar {
+            height: 10px;
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0%);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body class="bg-dark text-light">
+    <script src="./src/popper.min.js.download"></script>
+    <script src="./src/bootstrap.min.js(1).download"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand h1" href="main.html">
+                <img src="./src/kint.ico" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top">
+                AZK Manager
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="scan.html">Scan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sales.html">Sales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="active.html">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="generate.html">Generate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="subscribers.html">Subscribers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Kintoyyy/AZK-Manager">Github</a>
+                    </li>
+                </ul>
+                <form class="d-flex position-relative" method="post" action="Settings.html">
+                    <div class="form-check form-switch ms-auto mt-2 me-3">
+                        <label class="form-check-label ms-3" for="lightSwitch">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-brightness-high" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
+                                </path>
+                            </svg>
+                        </label>
+                        <input class="form-check-input" type="checkbox" id="lightSwitch">
+                    </div>
+                    <div class="dropdown dropstart me-2">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            MikroTik
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><button class="dropdown-item" name="set" value="1">Hex Gr3</button></li>
+                            <li><button class="dropdown-item" name="set" value="2">Haplite</button></li>
+                            <li><button class="dropdown-item" name="set" value="64">remoteWinBox</button></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="Settings.html">Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown dropstart">
+                        <button class="btn btn-secondary dropdown-toggle show" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="true">
+                            User Settings
+                        </button>
+                        <ul class="dropdown-menu show" aria-labelledby="dropdownMenuButton1" data-bs-popper="static">
+                            <li><a class="dropdown-item" href="edit-user.html">Manage
+                                    Account</a></li>
+                            <li><a class="dropdown-item" href="">Script</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZK Manager V2</title>
+    <link rel="icon" type="image/x-icon" href="./src/kint.ico">
+    <link rel="stylesheet" href="./src/bootstrap.min(1).css" type="text/css">
+    <link rel="stylesheet" href="./src/all.min(2).css" type="text/css">
+    <link rel="stylesheet" href="./src/custom(1).css" type="text/css">
+    <link href="./src/all.min(3).css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet">
+    <section class="container wrapper py-lg-5 sm" style="max-width: 700px;">
+        <div class="text-center">
+            <h4 class="display-4 pt-5">Edit MikroTik</h4>
+        </div>
+        <form method="POST" id="myform">
+            <div class="row">
+                <div class="form-group col">
+                    <label>Name</label>
+                    <input type="text" name="name" id="name" class="form-control" value="" placeholder="Kintoyyy">
+                </div>
+                <div class="form-group col">
+                    <label>Ip Address</label>
+                    <input type="text" name="ipaddress" id="address" class="form-control" value=""
+                        placeholder="192.168.150.254">
+                </div>
+
+                <div class="form-group col-3">
+                    <label>Port</label>
+                    <input type="port" name="port" id="pass" class="form-control" value="8728" maxlength="5">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label>Username</label>
+                    <input type="text" name="username" id="user" class="form-control" value="" placeholder="admin">
+                </div>
+                <div class="form-group col">
+                    <label>Password</label>
+                    <input type="password" name="password" id="pass" class="form-control" value=""
+                        placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label>Currency</label>
+                    <input type="text" name="currency" id="currency" class="form-control" value="₱" placeholder="₱">
+                </div>
+                <div class="form-group col">
+                    <label>Interface</label>
+                    <input type="text" name="interface" id="interface" class="form-control" value=""
+                        placeholder="ether-1">
+                </div>
+                <div class="form-group col">
+                    <label for="customRange2" class="form-label">Share: <span id="percentage">50</span>%</label>
+                    <input type="range" class="form-range" min="1" max="100" name="shared" id="shared" value="">
+                </div>
+            </div>
+            <div id="button" class="my-3 d-grid gap-2">
+                <button class="btn btn-success btn-block " name="add">Add MikroTik</button>
+                <a class="btn btn-secondary btn-block" href="main.html">Back</a>
+            </div>
+        </form>
+        <div style="overflow-x:auto;">
+            <table id="Active" class="table table-bordered table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th width="120">Name</th>
+                        <th>Address</th>
+                        <th>Username</th>
+                        <th>port</th>
+                        <th width="140">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hex Gr3</td>
+                        <td>10.19.21.100</td>
+                        <td>Development</td>
+                        <td>8728</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm text-center" onclick="edit()">Edit</button>
+                            <button form="myform" class="btn btn-danger btn-block btn-sm" name="Remove"
+                                value="1">Remove</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Haplite</td>
+                        <td>10.18.12.2</td>
+                        <td>Development</td>
+                        <td>8728</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm text-center" onclick="edit()">Edit</button>
+                            <button form="myform" class="btn btn-danger btn-block btn-sm" name="Remove"
+                                value="2">Remove</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+    <script src="./src/jquery-3.6.1.min.js(1).download"></script>
+    <script>
+        function edit() {
+            $('#button').html('<button form="myform" class="btn btn-success btn-block " name="update">Apply</button><button class="btn btn-secondary btn-block" onclick="clear()">Clear</button>');
+        }
+
+        function clear() {
+            $('#myform').closest('form').find("input[type=text], textarea").val("");
+            $('#button').html('<button class="btn btn-success btn-block " name="add">Add MikroTik</button><a class="btn btn-secondary btn-block" href="index.php">Back</a>');
+        }
+    </script>
+
+
+
+    <div class="text-center text-muted align-self-center mt-3" style="font-size: 15px;" id="crdts">Powered by AZK
+        Manager v3.0.5</div>
+    <div class="text-center text-muted align-self-center mb-5" style="font-size: 10px;" id="crdts">Made by <a
+            class="text-decoration-none" href="https://github.com/Kintoyyy" id="kintoyyy">kintoyyy 🖤</a></div>
+
+    <script src="./src/switch.js.download"></script>
+</body>
+
+</html>

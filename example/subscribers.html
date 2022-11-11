@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://10.15.0.5/index.php?page=subscriber -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZK Manager V2</title>
+    <link rel="icon" type="image/x-icon" href="./src/kint.ico">
+    <link rel="stylesheet" href="./src/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/all.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/custom.css" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet" />
+    <script src="./src/jquery-3.6.1.min.js.download"></script>
+    <script src="./src/bootstrap.bundle.min.js.download"></script>
+    <script src="./src/bootstrap.min.js.download"></script>
+    <script src="./src/chart.min.js.download"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <style>
+        ::-webkit-scrollbar {
+            height: 10px;
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0%);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body class="bg-dark text-light">
+    <script src="./src/popper.min.js.download"></script>
+    <script src="./src/bootstrap.min.js(1).download"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand h1" href="http://10.15.0.5/index.php">
+                <img src="./src/kint.ico" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top">
+                AZK Manager
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="scan.html">Scan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sales.html">Sales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="active.html">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="generate.html">Generate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="subscribers.html">Subscribers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Kintoyyy/AZK-Manager">Github</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex position-relative" method="post"
+                    action="http://10.15.0.5/index.php?page=subscriber">
+                    <div class="form-check form-switch ms-auto mt-2 me-3">
+                        <label class="form-check-label ms-3" for="lightSwitch">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-brightness-high" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
+                                </path>
+                            </svg>
+                        </label>
+                        <input class="form-check-input" type="checkbox" id="lightSwitch">
+                    </div>
+                    <div class="dropdown dropstart me-2">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            MikroTik
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><button class="dropdown-item" name="set" value="1">Hex Gr3</button></li>
+                            <li><button class="dropdown-item" name="set" value="2">Haplite</button></li>
+                            <li><button class="dropdown-item" name="set" value="64">remoteWinBox</button></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="http://10.15.0.5/index.php?page=settings">Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown dropstart">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            User Settings
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="http://10.15.0.5/index.php?page=edit_users">Manage
+                                    Account</a></li>
+                            <li><a class="dropdown-item" href="http://10.15.0.5/index.php?page=script">Script</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="http://10.15.0.5/logout.php">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <link rel="stylesheet" type="text/css" href="./src/datatables.min.css">
+    <script type="text/javascript" src="./src/datatables.min.js.download"></script>
+
+    <div class="container py-5">
+        <div class=" mb-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSub">
+                Add Users
+            </button>
+        </div>
+        <div class="row" style="overflow-x:auto;">
+            <div id="Subscriber_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="dataTables_length" id="Subscriber_length"><label>Show <select
+                                    name="Subscriber_length" aria-controls="Subscriber"
+                                    class="form-select form-select-sm">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select> entries</label></div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div id="Subscriber_filter" class="dataTables_filter"><label>Search:<input type="search"
+                                    class="form-control form-control-sm" placeholder=""
+                                    aria-controls="Subscriber"></label></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="Subscriber" class="table table-hover table-sm table-dark dataTable no-footer"
+                            width="100%" aria-describedby="Subscriber_info" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th class="sorting sorting_asc" tabindex="0" aria-controls="Subscriber" rowspan="1"
+                                        colspan="1" aria-sort="ascending" aria-label="Name 
+                    : activate to sort column descending" style="width: 90px;">Name <div class="badge"></div>
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="Subscriber" rowspan="1" colspan="1"
+                                        aria-label="Status: activate to sort column ascending" style="width: 81px;">
+                                        Status</th>
+                                    <th class="sorting" tabindex="0" aria-controls="Subscriber" rowspan="1" colspan="1"
+                                        aria-label="Plan: activate to sort column ascending" style="width: 70px;">Plan
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="Subscriber" rowspan="1" colspan="1"
+                                        aria-label="Price: activate to sort column ascending" style="width: 56px;">Price
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="Subscriber" rowspan="1" colspan="1"
+                                        aria-label="Next Due: activate to sort column ascending" style="width: 100px;">
+                                        Next Due</th>
+                                    <th class="sorting" tabindex="0" aria-controls="Subscriber" rowspan="1" colspan="1"
+                                        aria-label="Server: activate to sort column ascending" style="width: 161px;">
+                                        Server</th>
+                                    <th class="sorting" tabindex="0" aria-controls="Subscriber" rowspan="1" colspan="1"
+                                        aria-label="Mac Address: activate to sort column ascending"
+                                        style="width: 155px;">Mac Address</th>
+                                    <th class="sorting" tabindex="0" aria-controls="Subscriber" rowspan="1" colspan="1"
+                                        aria-label="Contact no:: activate to sort column ascending"
+                                        style="width: 122px;">Contact no:</th>
+                                    <th class="sorting" tabindex="0" aria-controls="Subscriber" rowspan="1" colspan="1"
+                                        aria-label="Facebook: activate to sort column ascending" style="width: 174px;">
+                                        Facebook</th>
+                                    <th width="50" class="sorting" tabindex="0" aria-controls="Subscriber" rowspan="1"
+                                        colspan="1" aria-label="Edit: activate to sort column ascending"
+                                        style="width: 50px;">Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd">
+                                    <td class="sorting_1"><label class="form-check-label"
+                                            for="check_list">Adrienne</label></td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-secondary">Disabled</span></td>
+                                    <td>B-7mbps</td>
+                                    <td>₱10000</td>
+                                    <td>6</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td> </td>
+                                    <td>09760009422</td>
+                                    <td><a href="https://www.facebook.com/">@</a></td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*3E01&#39;,&#39;Adrienne&#39;,&#39;Adrienne&#39;,&#39;unpaid&#39;,&#39;09760009422&#39;,&#39;&#39;,&#39;10000&#39;,&#39;6&#39;,&#39;B-7mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39; &lt;/td&gt;&#39;,&#39;true&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                                <tr class="even">
+                                    <td class="sorting_1"><label class="form-check-label" for="check_list">Alex</label>
+                                    </td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-success">paid</span></td>
+                                    <td>B-3mbps</td>
+                                    <td>₱200</td>
+                                    <td>1</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td>AE:2E:28:35:B2:AA</td>
+                                    <td></td>
+                                    <td><a href="https://www.facebook.com/alex.azuelo.7">@alex.azuelo.7</a></td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*6&#39;,&#39;Alex&#39;,&#39;Alex_VB&#39;,&#39;paid&#39;,&#39;&#39;,&#39;alex.azuelo.7&#39;,&#39;200&#39;,&#39;1&#39;,&#39;B-3mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39;AE:2E:28:35:B2:AA&#39;,&#39;false&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                                <tr class="odd">
+                                    <td class="sorting_1"><label class="form-check-label" for="check_list">Baby
+                                            Babat</label></td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-secondary">Disabled</span></td>
+                                    <td>B-7mbps</td>
+                                    <td>₱200</td>
+                                    <td>30</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td>44:AE:AB:76:9D:FF</td>
+                                    <td>094343422344</td>
+                                    <td><a href="https://www.facebook.com/Babat">@Babat</a></td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*2AD4&#39;,&#39;Baby Babat&#39;,&#39;Babat&#39;,&#39;unpaid&#39;,&#39;094343422344&#39;,&#39;Babat&#39;,&#39;200&#39;,&#39;30&#39;,&#39;B-7mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39;44:AE:AB:76:9D:FF&#39;,&#39;true&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                                <tr class="even">
+                                    <td class="sorting_1"><label class="form-check-label"
+                                            for="check_list">Crystal</label></td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-success">paid</span></td>
+                                    <td>B-3mbps</td>
+                                    <td>₱200</td>
+                                    <td>15</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td>8E:56:F0:68:FA:CA</td>
+                                    <td></td>
+                                    <td><a href="https://www.facebook.com/">@</a></td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*2D31&#39;,&#39;Crystal&#39;,&#39;Crystal&#39;,&#39;paid&#39;,&#39;&#39;,&#39;&#39;,&#39;200&#39;,&#39;15&#39;,&#39;B-3mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39;8E:56:F0:68:FA:CA&#39;,&#39;false&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                                <tr class="odd">
+                                    <td class="sorting_1"><label class="form-check-label"
+                                            for="check_list">Cuizon</label></td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-success">paid</span></td>
+                                    <td>B-3mbps</td>
+                                    <td>₱200</td>
+                                    <td>15</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td>82:BE:BD:7A:0C:8F</td>
+                                    <td></td>
+                                    <td><a href="https://www.facebook.com/cuizon.janril">@cuizon.janril</a></td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*2D30&#39;,&#39;Cuizon&#39;,&#39;Cuizon&#39;,&#39;paid&#39;,&#39;&#39;,&#39;cuizon.janril&#39;,&#39;200&#39;,&#39;15&#39;,&#39;B-3mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39;82:BE:BD:7A:0C:8F&#39;,&#39;false&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                                <tr class="even">
+                                    <td class="sorting_1"><label class="form-check-label" for="check_list">diana</label>
+                                    </td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-secondary">Disabled</span></td>
+                                    <td>B-3mbps</td>
+                                    <td>₱200</td>
+                                    <td>10</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td>F2:42:55:9B:20:B0</td>
+                                    <td></td>
+                                    <td><a href="https://www.facebook.com/dianamae.lopez.142">@dianamae.lopez.142</a>
+                                    </td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*3344&#39;,&#39;diana&#39;,&#39;diana&#39;,&#39;unpaid&#39;,&#39;&#39;,&#39;dianamae.lopez.142&#39;,&#39;200&#39;,&#39;10&#39;,&#39;B-3mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39;F2:42:55:9B:20:B0&#39;,&#39;true&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                                <tr class="odd">
+                                    <td class="sorting_1"><label class="form-check-label" for="check_list">Ella</label>
+                                    </td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-success">paid</span></td>
+                                    <td>B-3mbps</td>
+                                    <td>₱200</td>
+                                    <td>1</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td>D2:5D:A4:E5:4A:08</td>
+                                    <td></td>
+                                    <td><a href="https://www.facebook.com/villarinell">@villarinell</a></td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*3&#39;,&#39;Ella&#39;,&#39;Ella_VB&#39;,&#39;paid&#39;,&#39;&#39;,&#39;villarinell&#39;,&#39;200&#39;,&#39;1&#39;,&#39;B-3mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39;D2:5D:A4:E5:4A:08&#39;,&#39;false&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                                <tr class="even">
+                                    <td class="sorting_1"><label class="form-check-label" for="check_list">Emily</label>
+                                    </td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-success">paid</span></td>
+                                    <td>B-3mbps</td>
+                                    <td>₱200</td>
+                                    <td>15</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td>70:B7:AA:D5:C6:03</td>
+                                    <td></td>
+                                    <td><a href="https://www.facebook.com/">@</a></td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*9E3&#39;,&#39;Emily&#39;,&#39;Emily&#39;,&#39;paid&#39;,&#39;&#39;,&#39;&#39;,&#39;200&#39;,&#39;15&#39;,&#39;B-3mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39;70:B7:AA:D5:C6:03&#39;,&#39;false&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                                <tr class="odd">
+                                    <td class="sorting_1"><label class="form-check-label" for="check_list">Gaga</label>
+                                    </td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-success">paid</span></td>
+                                    <td>B-3mbps</td>
+                                    <td>₱200</td>
+                                    <td>1</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td>5C:66:6C:DB:A2:4F</td>
+                                    <td></td>
+                                    <td><a href="https://www.facebook.com/rinalyn.limbaga.58">@rinalyn.limbaga.58</a>
+                                    </td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*5&#39;,&#39;Gaga&#39;,&#39;Gaga_VB&#39;,&#39;paid&#39;,&#39;&#39;,&#39;rinalyn.limbaga.58&#39;,&#39;200&#39;,&#39;1&#39;,&#39;B-3mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39;5C:66:6C:DB:A2:4F&#39;,&#39;false&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                                <tr class="even">
+                                    <td class="sorting_1"><label class="form-check-label" for="check_list">jessa</label>
+                                    </td>
+                                    <td><span class="badge mx-1 fw-bold rounded-pill bg-success">paid</span></td>
+                                    <td>B-3mbps</td>
+                                    <td>₱200</td>
+                                    <td>1</td>
+                                    <td>B-Hotspot-Vlan-80</td>
+                                    <td>9C:A5:C0:F5:1D:99</td>
+                                    <td></td>
+                                    <td><a href="https://www.facebook.com/">@</a></td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#editSub"
+                                            onclick="edit(&#39;*31A2&#39;,&#39;jessa&#39;,&#39;jessa&#39;,&#39;paid&#39;,&#39;&#39;,&#39;&#39;,&#39;200&#39;,&#39;1&#39;,&#39;B-3mbps&#39;,&#39;B-Hotspot-Vlan-80&#39;,&#39;9C:A5:C0:F5:1D:99&#39;,&#39;false&#39;)"
+                                            class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div class="dataTables_info" id="Subscriber_info" role="status" aria-live="polite">Showing 1 to
+                            10 of 15 entries</div>
+                    </div>
+                    <div class="col-sm-12 col-md-7">
+                        <div class="dataTables_paginate paging_simple_numbers" id="Subscriber_paginate">
+                            <ul class="pagination">
+                                <li class="paginate_button page-item previous disabled" id="Subscriber_previous"><a
+                                        href="http://10.15.0.5/index.php?page=subscriber#" aria-controls="Subscriber"
+                                        data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                                <li class="paginate_button page-item active"><a
+                                        href="http://10.15.0.5/index.php?page=subscriber#" aria-controls="Subscriber"
+                                        data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                <li class="paginate_button page-item "><a
+                                        href="http://10.15.0.5/index.php?page=subscriber#" aria-controls="Subscriber"
+                                        data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                <li class="paginate_button page-item next" id="Subscriber_next"><a
+                                        href="http://10.15.0.5/index.php?page=subscriber#" aria-controls="Subscriber"
+                                        data-dt-idx="3" tabindex="0" class="page-link">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--add-->
+    <div class="modal fade" id="addSub" tabindex="-1" aria-labelledby="addSubLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addSubLabel">Add</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post">
+                    <div class="modal-body">
+                        <!--Name-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Username</label>
+                            </div>
+                            <input type="text" aria-label="Limit" class="form-control" value="" name="username">
+                        </div>
+                        <!--Password-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Password</label>
+                            </div>
+                            <input type="password" aria-label="Limit" class="form-control" value="" name="password">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Number</label>
+                            </div>
+                            <input type="number" class="form-control" value="" name="number">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Facebook</label>
+                            </div>
+                            <input type="text" class="form-control" value="" name="facebook">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Price</label>
+                            </div>
+                            <input type="number" class="form-control" value="" name="price">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Due Date</label>
+                            </div>
+                            <!--<input type="text" class="form-control" value="" name="due">-->
+                            <select class="form-select" name="due" value="">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                        <!--Profile-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="profile">Profile</label>
+                            </div>
+                            <select class="form-select" name="profile" value="">
+                                <option>default</option>
+                                <option>B-3mbps</option>
+                                <option>B-5mbps</option>
+                                <option>B-7mbps</option>
+                                <option>B-Trial</option>
+                                <option>B-Free HS vendor</option>
+                                <option>Expired</option>
+                                <option>C-default</option>
+                                <option>C-Trial</option>
+                                <option>uprof1</option>
+                                <option>uprof2</option>
+                                <option>B-Admin</option>
+                                <option>C-Admin</option>
+                            </select>
+                        </div>
+                        <!--Server-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="server">Server</label>
+                            </div>
+                            <select class="form-select" name="server" value="">
+                                <option>C-Hotspot-Vlan-70</option>
+                                <option>B-Hotspot-Vlan-80</option>
+                            </select>
+                        </div>
+                        <button type="submit" name="add" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--edit-->
+    <div class="modal fade" id="editSub" tabindex="-1" aria-labelledby="editSubLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editSubLabel">Edit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post">
+                    <div class="modal-body">
+                        <span id="editmodal" class="badge badge-primary"></span>
+                        <!--Name-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Username</label>
+                            </div>
+                            <input type="text" class="form-control" value="" id="username" name="username">
+                            <select class="form-select col-3" id="status" name="status" value="">
+                                <option value="unpaid">Unpaid</option>
+                                <option value="paid">Paid</option>
+                            </select>
+                            <input type="text" class="form-control col-2" value="" id="id" disabled="">
+
+                        </div>
+                        <!--Password-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Password</label>
+                            </div>
+                            <input type="password" aria-label="Limit" class="form-control" value="" id="password"
+                                name="password">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Number</label>
+                            </div>
+                            <input type="text" class="form-control" value="" id="number" name="number" maxlength="12">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Facebook</label>
+                            </div>
+                            <input type="text" class="form-control" value="" id="facebook" name="facebook">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Price</label>
+                            </div>
+                            <input type="number" class="form-control" value="" id="price" name="price">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Due Date</label>
+                            </div>
+                            <select class="form-select" id="due" name="due" value="">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Mac Address</label>
+                            </div>
+                            <input type="text" class="form-control" value="" id="mac-address" name="mac-address"
+                                maxlength="17">
+                        </div>
+                        <!--Profile-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="profile">Profile</label>
+                            </div>
+                            <select class="form-select" id="profile" name="profile" value="">
+                                <option>default</option>
+                                <option>B-3mbps</option>
+                                <option>B-5mbps</option>
+                                <option>B-7mbps</option>
+                                <option>B-Trial</option>
+                                <option>B-Free HS vendor</option>
+                                <option>Expired</option>
+                                <option>C-default</option>
+                                <option>C-Trial</option>
+                                <option>uprof1</option>
+                                <option>uprof2</option>
+                                <option>B-Admin</option>
+                                <option>C-Admin</option>
+                            </select>
+                        </div>
+                        <!--Server-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="server">Server</label>
+                            </div>
+                            <select class="form-select" name="server" id="server" value="">
+                                <option>all</option>
+                                <option>C-Hotspot-Vlan-70</option>
+                                <option>B-Hotspot-Vlan-80</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="remove" id="remove" value="" class="btn btn-danger"><i
+                                class="fas fa-trash"></i> Delete</button>
+                        <button type="submit" name="disable" id="disable" value=""
+                            class="btn btn-secondary">Disable</button>
+                        <button type="submit" name="edit" id="edit" value="" class="btn btn-success"><i
+                                class="fas fa-save"></i> Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="text-center text-muted align-self-center mt-3" style="font-size: 15px;" id="crdts">Powered by AZK
+        Manager v3.0.5</div>
+    <div class="text-center text-muted align-self-center mb-5" style="font-size: 10px;" id="crdts">Made by <a
+            class="text-decoration-none" href="https://github.com/Kintoyyy" id="kintoyyy">kintoyyy 🖤</a></div>
+
+    <script src="./src/switch.js.download"></script>
+</body>
+
+</html>

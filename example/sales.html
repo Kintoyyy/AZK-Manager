@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://10.15.0.5/index.php?page=sales -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZK Manager V2</title>
+    <link rel="icon" type="image/x-icon" href="./src/kint.ico">
+    <link rel="stylesheet" href="./src/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/all.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/custom.css" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet" />
+    <script src="./src/jquery-3.6.1.min.js.download"></script>
+    <script src="./src/bootstrap.bundle.min.js.download"></script>
+    <script src="./src/bootstrap.min.js.download"></script>
+    <script src="./src/chart.min.js.download"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <style>
+        ::-webkit-scrollbar {
+            height: 10px;
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0%);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body class="bg-dark text-light">
+    <script src="./src/popper.min.js.download"></script>
+    <script src="./src/bootstrap.min.js(1).download"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand h1" href="main.html">
+                <img src="./src/kint.ico" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                AZK Manager
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="scan.html">Scan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sales.html">Sales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="active.html">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="generate.html">Generate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="subscribers.html">Subscribers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Kintoyyy/AZK-Manager">Github</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex position-relative" method="post" action="">
+                    <div class="form-check form-switch ms-auto mt-2 me-3">
+                        <label class="form-check-label ms-3" for="lightSwitch">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-brightness-high" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
+                                </path>
+                            </svg>
+                        </label>
+                        <input class="form-check-input" type="checkbox" id="lightSwitch">
+                    </div>
+                    <div class="dropdown dropstart me-2">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            MikroTik
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><button class="dropdown-item" name="set" value="1">Hex Gr3</button></li>
+                            <li><button class="dropdown-item" name="set" value="2">Haplite</button></li>
+                            <li><button class="dropdown-item" name="set" value="64">remoteWinBox</button></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="Settings.html">Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown dropstart">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            User Settings
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="edit-user.html">Manage
+                                    Account</a></li>
+                            <li><a class="dropdown-item" href="">Script</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-2">
+
+        <div class="row mt-2">
+            <div class="col-xl col-md-6 mb-2">
+                <div class="card bg-dark shadow h-100 ">
+                    <div class="card-body">
+                        <div id="hotpsot" class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="fw-bold text-primary">Hotspot Users</div>
+                                <div class="mb-0 fw-bold">17</div>
+                            </div>
+                            <div class="col mr-2">
+                                <div class="fw-bold text-primary">Vouchers</div>
+                                <div class="mb-0 fw-bold text-gray-800">1,879pcs.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl col-md-6 mb-2">
+                <div class="card bg-dark shadow h-100 ">
+                    <div class="card-body">
+                        <div id="sales1" class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="fw-bold text-primary">Monthly</div>
+                                <div class="mb-0 fw-bold text-gray-800">₱3,375</div>
+                            </div>
+                            <div class="col mr-2">
+                                <div class="fw-bold text-primary">Today</div>
+                                <div class="mb-0 fw-bold text-gray-800">₱260</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl col-md-6 mb-2">
+                <div class="card bg-dark shadow h-100 ">
+                    <div class="card-body">
+                        <div id="pppoe" class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="fw-bold text-primary"> PPPoE Users</div>
+                                <div class="mb-0 fw-bold text-gray-800">0</div>
+                            </div>
+                            <div class="col mr-2">
+                                <div class="fw-bold text-primary"> PPPoE Clients</div>
+                                <div class="mb-0 fw-bold text-gray-800">4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xl-4 col-lg-5 mb-2">
+                <div class="card bg-dark shadow">
+                    <div class="card-body" style="height: 300px">
+                        <canvas id="PieChart"
+                            style="display: block; box-sizing: border-box; height: 267.708px; width: 381.25px;"
+                            width="366" height="257"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col col-yl-4">
+                <div class="card bg-dark shadow mb-2">
+
+                    <nav>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link bg-dark active" id="daily-sales" data-bs-toggle="tab"
+                                        data-bs-target="#daily-sales-chart" type="button" role="tab"
+                                        aria-controls="daily-sales-chart" aria-selected="true">Daily Sales</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link bg-dark" id="seller-sales" data-bs-toggle="tab"
+                                        data-bs-target="#seller-sales-chart" type="button" role="tab"
+                                        aria-controls="seller-sales-chart" aria-selected="false" tabindex="-1">Seller
+                                        Sales</button>
+                                </li>
+                            </div>
+                        </ul>
+                    </nav>
+                    <div class="tab-content " id="myTabContent">
+                        <div class="tab-pane fade show active p-4" id="daily-sales-chart" role="tabpanel"
+                            style="height: 260px" aria-labelledby="home-tab" tabindex="0">
+                            <canvas id="LineChart"
+                                style="display: block; box-sizing: border-box; height: 211.458px; width: 805.208px;"
+                                width="773" height="203"></canvas>
+                        </div>
+                        <div class="tab-pane fade p-4" id="seller-sales-chart" role="tabpanel" style="height: 260px"
+                            aria-labelledby="profile-tab" tabindex="0">
+                            <canvas id="BarChart"
+                                style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0"
+                                width="0"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl col-md-6 mb-2">
+                <div class="card bg-dark shadow h-100 ">
+                    <div class="card-body">
+
+
+                        <script type="text/javascript" src="./src/datatables.min.js.download"></script>
+                        <div class="row" style="overflow-x:auto;">
+                            <p class=""></p>
+                            <form method="post">
+                                <table class="table table-hover table-sm table-dark" id="dataTable" width="100%"
+                                    cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:10%">Seller</th>
+                                            <th style="width:7%">Curent</th>
+                                            <th style="width:12%"><span
+                                                    class="badge mx-1 text-dark fw-bold bg-info">30%</span> / <span
+                                                    class="badge fw-bold  text-dark bg-warning">70%</span> </th>
+                                            <th style="width:5%">Monthly</th>
+                                            <th style="width:5%">Daily</th>
+                                            <th style="width:13%">Last release</th>
+                                            <th>Remaining Voucher's</th>
+                                            <th>Edit Seller</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class=" fw-bold ">Villarin</td>
+                                            <td>₱205</td>
+                                            <td>
+                                                <h2 class="badge mx-1 text-dark fw-bold bg-info">₱62</h2>
+                                                <h2 class="badge fw-bold  text-dark bg-warning">₱144</h2>
+                                            </td>
+                                            <td>₱685</td>
+                                            <td>₱85</td>
+                                            <td>₱3,650 - <span class="badge bg-warning text-dark">nov/09/2022</span>
+                                            </td>
+                                            <td>
+                                                <h1 class="badge mx-1 fw-bold bg-primary">Total - 259 pcs
+                                                </h1>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-success">₱5 - 60 pcs</h2>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-success">₱10 - 199 pcs
+                                                </h2>
+                                            </td>
+                                            <td>
+
+                                                <div class="btn-group" role="group"
+                                                    aria-label="Basic mixed styles example">
+                                                    <a class="btn btn-success btn-icon-split btn-sm"
+                                                        onclick="">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-hand-holding-usd"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-secondary btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-file-upload"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" fw-bold ">Rato</td>
+                                            <td>₱520</td>
+                                            <td>
+                                                <h2 class="badge mx-1 text-dark fw-bold bg-info">₱156</h2>
+                                                <h2 class="badge fw-bold  text-dark bg-warning">₱364</h2>
+                                            </td>
+                                            <td>₱135</td>
+                                            <td>₱5</td>
+                                            <td>₱2,075 - <span class="badge bg-warning text-dark">sep/15/2022</span>
+                                            </td>
+                                            <td>
+                                                <h1 class="badge mx-1 fw-bold bg-primary">Total - 437 pcs
+                                                </h1>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-success">₱5 - 262 pcs</h2>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-success">₱10 - 175 pcs
+                                                </h2>
+                                            </td>
+                                            <td>
+
+                                                <div class="btn-group" role="group"
+                                                    aria-label="Basic mixed styles example">
+                                                    <a class="btn btn-success btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-hand-holding-usd"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-secondary btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-file-upload"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" fw-bold ">Lopez</td>
+                                            <td>₱1,260</td>
+                                            <td>
+                                                <h2 class="badge mx-1 text-dark fw-bold bg-info">₱378</h2>
+                                                <h2 class="badge fw-bold  text-dark bg-warning">₱882</h2>
+                                            </td>
+                                            <td>₱655</td>
+                                            <td>₱40</td>
+                                            <td>₱2,175 - <span class="badge bg-warning text-dark">oct/24/2022</span>
+                                            </td>
+                                            <td>
+                                                <h1 class="badge mx-1 fw-bold bg-primary">Total - 479 pcs
+                                                </h1>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-success">₱5 - 92 pcs</h2>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-success">₱10 - 387 pcs
+                                                </h2>
+                                            </td>
+                                            <td>
+
+                                                <div class="btn-group" role="group"
+                                                    aria-label="Basic mixed styles example">
+                                                    <a class="btn btn-success btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-hand-holding-usd"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-secondary btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-file-upload"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" fw-bold ">Emily</td>
+                                            <td>₱955</td>
+                                            <td>
+                                                <h2 class="badge mx-1 text-dark fw-bold bg-info">₱287</h2>
+                                                <h2 class="badge fw-bold  text-dark bg-warning">₱669</h2>
+                                            </td>
+                                            <td>₱125</td>
+                                            <td>₱0</td>
+                                            <td>₱0 - <span class="badge bg-warning text-dark"></span></td>
+                                            <td>
+                                                <h1 class="badge mx-1 fw-bold bg-primary">Total - 300 pcs
+                                                </h1>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-success">₱5 - 300 pcs</h2>
+                                            </td>
+                                            <td>
+
+                                                <div class="btn-group" role="group"
+                                                    aria-label="Basic mixed styles example">
+                                                    <a class="btn btn-success btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-hand-holding-usd"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-secondary btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-file-upload"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" fw-bold ">Annjoy</td>
+                                            <td>₱1,290</td>
+                                            <td>
+                                                <h2 class="badge mx-1 text-dark fw-bold bg-info">₱387</h2>
+                                                <h2 class="badge fw-bold  text-dark bg-warning">₱903</h2>
+                                            </td>
+                                            <td>₱500</td>
+                                            <td>₱35</td>
+                                            <td>₱1,480 - <span class="badge bg-warning text-dark">oct/17/2022</span>
+                                            </td>
+                                            <td>
+                                                <h1 class="badge mx-1 fw-bold bg-primary">Total - 44 pcs
+                                                </h1>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-warning">₱5 - 44 pcs</h2>
+                                            </td>
+                                            <td>
+
+                                                <div class="btn-group" role="group"
+                                                    aria-label="Basic mixed styles example">
+                                                    <a class="btn btn-success btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-hand-holding-usd"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-secondary btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-file-upload"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" fw-bold ">Cuizon</td>
+                                            <td>₱1,890</td>
+                                            <td>
+                                                <h2 class="badge mx-1 text-dark fw-bold bg-info">₱567</h2>
+                                                <h2 class="badge fw-bold  text-dark bg-warning">₱1,323</h2>
+                                            </td>
+                                            <td>₱1,275</td>
+                                            <td>₱95</td>
+                                            <td>₱2,500 - <span class="badge bg-warning text-dark">nov/09/2022</span>
+                                            </td>
+                                            <td>
+                                                <h1 class="badge mx-1 fw-bold bg-primary">Total - 322 pcs
+                                                </h1>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-success">₱5 - 152 pcs</h2>
+                                                <h2 class="badge mx-1 fw-bold rounded-pill bg-success">₱10 - 170 pcs
+                                                </h2>
+                                            </td>
+                                            <td>
+
+                                                <div class="btn-group" role="group"
+                                                    aria-label="Basic mixed styles example">
+                                                    <a class="btn btn-success btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-hand-holding-usd"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-secondary btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-file-upload"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-icon-split btn-sm">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        const ctx = document.getElementById("LineChart").getContext('2d');
+
+        const LineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Fri', 'Thu', 'Wed', 'Tue', 'Mon', 'Sun', 'Sat'],
+                datasets: [{
+                    label: 'Daily Sales',
+                    data: [260, 390, 350, 335, 400, 370, 400],
+                    fill: false,
+                    borderColor: '#dc3545',
+                    backgroundColor: '#dc3545',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            }
+        });
+
+
+        const pie = document.getElementById('PieChart').getContext('2d');
+
+        const PieChart = new Chart(pie, {
+            type: 'pie',
+            data: {
+                labels: [
+                    "Villarin", "Rato", "Lopez", "Emily", "Annjoy", "Cuizon",],
+                datasets: [{
+                    label: 'Sales',
+                    data: [
+                        "205", "520", "1260", "955", "1290", "1890", "35",],
+                    backgroundColor: [
+                        "hsl(233, 100%, 80%)", "hsl(310, 100%, 80%)", "hsl(321, 100%, 80%)", "hsl(176, 100%, 80%)", "hsl(111, 100%, 80%)", "hsl(87, 100%, 80%)",],
+                    borderWidth: 0,
+                    hoverOffset: 20
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        });
+
+
+        const bar = document.getElementById('BarChart');
+        //Bar Chart
+        const BarChart = new Chart(bar, {
+            type: 'bar',
+            data: {
+                labels: [
+                    "Villarin", "Rato", "Lopez", "Emily", "Annjoy", "Cuizon",],
+                datasets: [{
+                    label: 'Last Sales',
+                    data: [
+                        "3650", "2075", "2175", "0", "1480", "2500", "0",],
+                    backgroundColor: [
+                        '#767676'
+                    ],
+                    borderWidth: 1,
+
+                }, {
+                    label: 'Current Sales',
+                    data: [
+                        "205", "520", "1260", "955", "1290", "1890", "35",],
+                    backgroundColor: [
+                        "hsl(233, 100%, 80%)", "hsl(310, 100%, 80%)", "hsl(321, 100%, 80%)", "hsl(176, 100%, 80%)", "hsl(111, 100%, 80%)", "hsl(87, 100%, 80%)",],
+                    borderWidth: 1,
+
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Total Sales',
+                            fontStyle: 'bold',
+                            fontSize: 20
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            callback: function (value, index, values) {
+                                if (parseInt(value) >= 1000) {
+                                    return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                } else {
+                                    return '$' + value;
+                                }
+                            }
+                        }
+                    }],
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.dataset.label || '';
+
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += "₱" + context.parsed.y;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+        });
+    </script>
+    <script src="./src/stats.js.download"></script>
+    <script src="./src/chart.min.js(1).download"></script>
+
+    <div class="text-center text-muted align-self-center mt-3" style="font-size: 15px;" id="crdts">Powered by AZK
+        Manager v3.0.5</div>
+    <div class="text-center text-muted align-self-center mb-5" style="font-size: 10px;" id="crdts">Made by <a
+            class="text-decoration-none" href="https://github.com/Kintoyyy" id="kintoyyy">kintoyyy 🖤</a></div>
+
+    <script src="./src/switch.js.download"></script>
+</body>
+
+</html>

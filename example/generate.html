@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://10.15.0.5/index.php?page=generate -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZK Manager V2</title>
+    <link rel="icon" type="image/x-icon" href="./src/kint.ico">
+    <link rel="stylesheet" href="./src/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/all.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/custom.css" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet" />
+    <script src="./src/jquery-3.6.1.min.js.download"></script>
+    <script src="./src/voucher.css"></script>
+    <script src="./src/bootstrap.bundle.min.js.download"></script>
+    <script src="./src/bootstrap.min.js.download"></script>
+    <script src="./src/chart.min.js.download"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <style>
+        ::-webkit-scrollbar {
+            height: 10px;
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0%);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body class="bg-dark text-light" style="">
+    <script src="./src/popper.min.js.download"></script>
+    <script src="./src/bootstrap.min.js(1).download"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand h1" href="main.html">
+                <img src="./src/kint.ico" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top">
+                AZK Manager
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="scan.html">Scan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sales.html">Sales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="active.html">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="generate.html">Generate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="subscribers.html">Subscribers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Kintoyyy/AZK-Manager">Github</a>
+                    </li>
+                </ul>
+                <form class="d-flex position-relative" method="post" action="">
+                    <div class="form-check form-switch ms-auto mt-2 me-3">
+                        <label class="form-check-label ms-3" for="lightSwitch">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-brightness-high" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
+                                </path>
+                            </svg>
+                        </label>
+                        <input class="form-check-input" type="checkbox" id="lightSwitch">
+                    </div>
+                    <div class="dropdown dropstart me-2">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            MikroTik
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><button class="dropdown-item" name="set" value="1">Hex Gr3</button></li>
+                            <li><button class="dropdown-item" name="set" value="2">Haplite</button></li>
+                            <li><button class="dropdown-item" name="set" value="64">remoteWinBox</button></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="Settings.html">Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown dropstart">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            User Settings
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="edit-user.html">Manage
+                                    Account</a></li>
+                            <li><a class="dropdown-item" href="">Script</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container  py-4">
+        <div class="alert alert-primary h1 text-center alert-success" role="alert" id="alert" style="display: none;">
+            Done generating 50 codes!</div>
+
+
+        <div class="card shadow bg-dark mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Quick select</h5>
+                <div style="overflow-x:auto;" class="pb-3">
+                    <div class="d-flex flex-row flex-nowrap">
+                        <div class="card col card-block mx-2 bg-dark shadow" style="min-width: 300px;">
+                            <h5 class="card-header text-dark" style="background-color: #f2f49a;">₱5</h5>
+                            <div class="card-body">
+                                <p class="card-text mb-0">
+                                    Duration: <span class="text-primary fw-bold">3 hours </span><br>
+                                    Validity: <span class="text-primary fw-bold">3 hours </span><small
+                                        class="text-secondary"> ( Pausable )</small><br>
+                                    Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                    Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                    Profile: <span class="text-primary fw-bold">C-default</span><br>
+                                </p>
+                                <div class="d-flex gap-2">
+                                    <button href="#inputForm" class="col btn btn-primary"
+                                        onclick="">Select ₱5</button>
+                                    <button class="col-2 btn btn-danger"
+                                        onclick="" type="button"><i
+                                            class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card col card-block mx-2 bg-dark shadow" style="min-width: 300px;">
+                            <h5 class="card-header text-dark" style="background-color: #92bef7;">₱10</h5>
+                            <div class="card-body">
+                                <p class="card-text mb-0">
+                                    Duration: <span class="text-primary fw-bold">7 hours </span><br>
+                                    Validity: <span class="text-primary fw-bold">7 hours </span><small
+                                        class="text-secondary"> ( Pausable )</small><br>
+                                    Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                    Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                    Profile: <span class="text-primary fw-bold">C-default</span><br>
+                                </p>
+                                <div class="d-flex gap-2">
+                                    <button href="#inputForm" class="col btn btn-primary"
+                                        onclick="">Select ₱10</button>
+                                    <button class="col-2 btn btn-danger"
+                                        onclick="" type="button"><i
+                                            class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card col card-block mx-2 bg-dark shadow" style="min-width: 300px;">
+                            <h5 class="card-header text-dark" style="background-color: #ff8080;">₱20</h5>
+                            <div class="card-body">
+                                <p class="card-text mb-0">
+                                    Duration: <span class="text-primary fw-bold">15 hours </span><br>
+                                    Validity: <span class="text-primary fw-bold">1 day </span><small
+                                        class="text-secondary"> ( Pausable )</small><br>
+                                    Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                    Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                    Profile: <span class="text-primary fw-bold">C-default</span><br>
+                                </p>
+                                <div class="d-flex gap-2">
+                                    <button href="#inputForm" class="col btn btn-primary"
+                                        onclick="">Select ₱20</button>
+                                    <button class="col-2 btn btn-danger"
+                                        onclick="" type="button"><i
+                                            class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card col card-block mx-2 bg-dark shadow" style="min-width: 300px;">
+                            <h5 class="card-header text-dark" style="background-color: #85ff8d;">₱50</h5>
+                            <div class="card-body">
+                                <p class="card-text mb-0">
+                                    Duration: <span class="text-primary fw-bold">4 days </span><br>
+                                    Validity: <span class="text-primary fw-bold">7 days </span><small
+                                        class="text-secondary"> ( Pausable )</small><br>
+                                    Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                    Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                    Profile: <span class="text-primary fw-bold">C-default</span><br>
+                                </p>
+                                <div class="d-flex gap-2">
+                                    <button href="#inputForm" class="col btn btn-primary"
+                                        onclick="">Select ₱50</button>
+                                    <button class="col-2 btn btn-danger"
+                                        onclick="" type="button"><i
+                                            class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card col card-block mx-2 bg-dark shadow" style="min-width: 300px;">
+                            <h5 class="card-header text-dark" style="background-color: #ffc685;">₱100</h5>
+                            <div class="card-body">
+                                <p class="card-text mb-0">
+                                    Duration: <span class="text-primary fw-bold">15 days </span><br>
+                                    Validity: <span class="text-primary fw-bold">20 days </span><small
+                                        class="text-secondary"> ( Pausable )</small><br>
+                                    Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                    Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                    Profile: <span class="text-primary fw-bold">C-default</span><br>
+                                </p>
+                                <div class="d-flex gap-2">
+                                    <button href="#inputForm" class="col btn btn-primary"
+                                        onclick="">Select ₱100</button>
+                                    <button class="col-2 btn btn-danger"
+                                        onclick="" type="button"><i
+                                            class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+                <h5 class="card-title">Generate</h5>
+                <form id="inputForm" class="needs-validation" action="generate.html">
+                    <div class="row">
+                        <div class="col-sm rst">
+                            <label class="form-label fw-bold" for="Vendo">Vendo Name</label>
+                            <input class="form-control reset" type="Text" name="vendo" min="1" max="16" value=""
+                                id="vendo" list="vendolist" required="">
+                            <datalist id="vendolist">
+                                <option value="Villarin"></option>
+                                <option value="Rato"></option>
+                                <option value="Lopez"></option>
+                                <option value="Emily"></option>
+                                <option value="Annjoy"></option>
+                                <option value="Cuizon"></option>
+                                <option value="TEST"> </option>
+                            </datalist>
+                        </div>
+                        <div class="col-sm">
+                            <label class="form-label fw-bold" for="Quantity">Quantity</label>
+                            <input class="form-control" type="number" name="qty" min="1" max="10000" id="quantity"
+                                value="" required="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <label class="form-label fw-bold">Pending Print</label>
+                            <div class="col  position-relative">
+                                <select class="form-select" id="pending" name="pending" required="1">
+                                    <option disabled="" selected="" value=""> -- select an option -- </option>
+                                    <option value="true">Yes (Disabled)</option>
+                                    <option value="false">No (Enabled)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6  col-md-6  col-lg-3">
+                            <label class="form-label fw-bold" for="prefix">Prefix
+                            </label>
+                            <input class="form-control" type="text" size="4" maxlength="4" autocomplete="off"
+                                name="prefix" id="prefix" value="">
+                        </div>
+                        <div class="col-sm">
+                            <label class="form-label fw-bold" for="char">length
+                            </label>
+                            <div class="input-group  has-validation">
+                                <select class="form-select" id="length" name="length" required="1">
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                                <select class="form-select" name="char" id="char" required="1">
+                                    <option value="1">Random A3B2C5</option>
+                                    <option value="2">Random abcdef</option>
+                                    <option value="3">Random 123456</option>
+                                    <option value="4">Random ABCDEF</option>
+                                    <option value="5">Random aBcDef</option>
+                                    <option value="6">Random aBc234</option>
+                                    <option value="7">Random @B$CDE%</option>
+                                    <option value="8">Random @B1C%E3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <label class="form-label fw-bold">Type</label>
+                            <div class="col">
+                                <select class="form-select" id="type" name="type" required="">
+                                    <option value="vc">Username = Password</option>
+                                    <option value="up">Username Only</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label fw-bold" for="Price">Voucher Price</label>
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control Clear-all " type="number" name="price" value=""
+                                        id="price" required="1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <label class="form-label fw-bold" for="Data">Voucher Data
+                            </label>
+                            <div class="input-group ">
+                                <input class="form-control" type="number" min="0" max="9999" name="datalimit" id="data"
+                                    value="">
+                                <select class="form-select" name="mbgb" id="mbgb" required="1">
+                                    <option value="1048576">MB</option>
+                                    <option value="1073741824">GB</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm input-group">
+                            <div class="w-100">
+                                <label class="form-label fw-bold" for="Duration">Voucher Duration
+                                    <label>
+                                    </label></label>
+                            </div>
+                            <input class="col form-control" type="number" size="4" placeholder="Days" autocomplete="off"
+                                name="durD" id="durationdays" value="">
+                            <input class="col form-control" type="number" size="4" placeholder="Hours"
+                                autocomplete="off" name="durH" id="durationhrs" value="">
+                            <input class="col form-control" type="number" size="4" placeholder="Minutes"
+                                autocomplete="off" name="durM" id="durationmnts" value="">
+                        </div>
+                        <div class="col-sm input-group">
+                            <div class="w-100">
+                                <label class="form-label fw-bold" for="Duration">Voucher Validity
+                                    <label>
+                                    </label></label>
+                            </div>
+                            <input class="col form-control" type="number" size="4" placeholder="Days" autocomplete="off"
+                                name="limD" id="validitydays" value="">
+                            <input class="col form-control" type="number" size="4" placeholder="Hours"
+                                autocomplete="off" name="limH" id="validityhrs" value="">
+                            <input class="col form-control" type="number" size="4" placeholder="Minutes"
+                                autocomplete="off" name="limM" id="validitymnts" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-sm ">
+                            <label class="form-label fw-bold" for="Profile">Profile
+                            </label>
+                            <select class="form-select" id="profile" name="profile" required="1">
+                                <option>default</option>
+                                <option>B-3mbps</option>
+                                <option>B-5mbps</option>
+                                <option>B-7mbps</option>
+                                <option>B-Trial</option>
+                                <option>B-Free HS vendor</option>
+                                <option>Expired</option>
+                                <option>C-default</option>
+                                <option>C-Trial</option>
+                                <option>uprof1</option>
+                                <option>uprof2</option>
+                                <option>B-Admin</option>
+                                <option>C-Admin</option>
+                            </select>
+                        </div>
+                        <div class="col-6 col-sm">
+                            <label class="form-label fw-bold" for="Server">Server
+                            </label>
+                            <select class="form-select" name="server" id="server" required="1"
+                                value="C-Hotspot-Vlan-70">
+                                <option>all</option>
+                                <option>C-Hotspot-Vlan-70</option>
+                                <option>B-Hotspot-Vlan-80</option>
+                            </select>
+                        </div>
+                        <div class="col-sm col-sm mb-2">
+                            <label class="form-label fw-bold" for="TagColor">Tag Color</label>
+                            <input class="form-control" id="color" type="color" name="color" value="#ffea8f">
+                        </div>
+                    </div>
+                    <div class="row gap-2 m-2 ">
+                        <button class="col-12 btn btn-success" type="submit" id="generate"><i class="fa fa-save"></i>
+                            Generate</button>
+                    </div>
+                </form>
+                <div class="row gap-2 m-1">
+                    <button class="col-12 col-sm col-lg btn btn-danger" id="reset"><i class="fas fa-trash"></i> Clear
+                        values</button>
+                    <button class="col-12 col-sm col-lg btn btn-primary" id="addTemp"><i class="fas fa-plus"></i> Add to
+                        template</button>
+                    <button class="col-12 col-sm col-lg  btn btn-warning  text-white text-white"  id="printbtn"
+                        type="button" data-bs-toggle="modal" data-bs-target="#print-modal"><i class="fas fa-print"></i>
+                        View Print Page</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="print-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="print-modalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="print-modalLabel">Print</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="color: #000;">
+                    <link rel="stylesheet" href="./src/voucher.css">
+                    <div id="printPage">
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10Q4P</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P105OZ</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10WKZ</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P1034Y</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10HJL</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P1057U</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10RQY</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P100J9</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10WYT</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10FO7</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10OU4</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P101XV</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10PRU</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10ESN</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10HZ8</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P1084A</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10K94</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P1068Q</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10U8T</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P105SR</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P106OT</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10SIJ</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P1008C</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10KTQ</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P101C2</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10FBA</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P107VN</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10S6M</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10LJB</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10VMU</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10PQ5</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10QCG</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10Z06</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10NA7</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10TCG</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10QBY</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10M8W</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P105XZ</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P107A3</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10D4W</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10LNP</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10FK2</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10ZLG</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10TI1</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10U0N</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10MQN</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10BUM</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P107CA</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P100WQ</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="voucher" style="width: 120px;">
+                            <tbody>
+                                <tr>
+                                    <td class="rotate"
+                                        style="font-weight: bold; border-right: 1px solid black; background-color:#92bef7; -webkit-print-color-adjust: exact;"
+                                        rowspan="6"><span>₱ 10</span></td>
+                                    <td style="font-weight: bold ;font-size: 10px;" colspan="2">TEST</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 100%; font-weight: bold; font-size: 15px; text-align: center;">
+                                        P10JEX</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Duration:7 hours </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 8px;font-weight: bold;"> Validity:7 hours </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="font-size: 8px;"> Login: http: //<span
+                                            style="font-weight: bold;">10.1.0.1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class=" row gap-2">
+                        <button class="col col-sm col-lg btn btn-danger" type="button" id="clearpage"><i
+                                class="fas fa-trash"></i> Clear Print Page</button>
+                        <button class="col col-sm col-lg btn btn-success" type="button" data-bs-dismiss="modal"><i
+                                class="fa fa-save"></i> Generate More</button>
+                        <button class="col col-sm col-lg btn btn-warning text-white" type="button" id="printvoucher"><i
+                                class="fas fa-print"></i> Print</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $('#clearpage').click(function () {
+            $("#printPage").empty();
+            $("#printbtn").hide();
+            setTimeout(function () {
+                $('#print-modal').modal('hide');
+            }, 5000)
+        })
+
+        $('#reset').click(function () {
+            $("#inputForm")[0].reset();
+        })
+
+        $('#printvoucher').click(function () {
+            let today = ((new Date).getMonth() + 1 + "").padStart(2, "0") + "_" + ((new Date).getDate() + "").padStart(2, "0") + "_" + (new Date).getFullYear()
+            var t = $("#vendo").val() + "_" + $("#price").val() + "_" + $("#quantity").val() + "pcs_" + today,
+                e = document.getElementById("printPage")
+            if ("" === e.textContent.trim());
+            else {
+                var o = document.getElementById("printPage").innerHTML,
+                    n = window.open("", "", "height=800, width=800")
+                n.document.write("<link href=./src/voucher.css rel=stylesheet>"), setTimeout(function () {
+                    n.document.write("<html><body><title>" + t + "</title>" + o + "<p>Generated by Azk Manager</p></body></html>"), n.print()
+                }, 100)
+            }
+        })
+    </script>
+    <div class="text-center text-muted align-self-center mt-3" style="font-size: 15px;" id="crdts">Powered by AZK
+        Manager v3.0.5</div>
+    <div class="text-center text-muted align-self-center mb-5" style="font-size: 10px;" id="crdts">Made by <a
+            class="text-decoration-none" href="https://github.com/Kintoyyy" id="kintoyyy">kintoyyy 🖤</a></div>
+
+    <script src="./src/switch.js.download"></script>
+</body>
+
+</html>

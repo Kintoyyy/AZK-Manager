@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://10.15.0.5/index.php?page=qr_scan -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZK Manager V2</title>
+    <link rel="icon" type="image/x-icon" href="./src/kint.ico">
+    <link rel="stylesheet" href="./src/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/all.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/custom.css" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet" />
+    <script src="./src/jquery-3.6.1.min.js.download"></script>
+    <script src="./src/bootstrap.bundle.min.js.download"></script>
+    <script src="./src/bootstrap.min.js.download"></script>
+    <script src="./src/chart.min.js.download"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <style>
+        ::-webkit-scrollbar {
+            height: 10px;
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0%);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body class="bg-dark text-light">
+    <script src="./src/popper.min.js.download"></script>
+    <script src="./src/bootstrap.min.js(1).download"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand h1" href="main.html">
+                <img src="./src/kint.ico" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                AZK Manager
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="scan.html">Scan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sales.html">Sales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="active.html">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="generate.html">Generate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="subscribers.html">Subscribers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Kintoyyy/AZK-Manager">Github</a>
+                    </li>
+                </ul>
+                <form class="d-flex position-relative" method="post" action="scan.html">
+                    <div class="form-check form-switch ms-auto mt-2 me-3">
+                        <label class="form-check-label ms-3" for="lightSwitch">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-brightness-high" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
+                                </path>
+                            </svg>
+                        </label>
+                        <input class="form-check-input" type="checkbox" id="lightSwitch">
+                    </div>
+                    <div class="dropdown dropstart me-2">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            MikroTik
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><button class="dropdown-item" name="set" value="1">Hex Gr3</button></li>
+                            <li><button class="dropdown-item" name="set" value="2">Haplite</button></li>
+                            <li><button class="dropdown-item" name="set" value="64">remoteWinBox</button></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="Settings.html">Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown dropstart">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            User Settings
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="edit-user.html">Manage
+                                    Account</a></li>
+                            <li><a class="dropdown-item" href="">Script</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mt-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-decoration-none" href="main.html">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Qr Scanner</li>
+            </ol>
+        </nav>
+        <div>
+            <div id="video-container" class="example-style-1 mt-2 " style="overflow: hidden;">
+                <video id="qr-video" width="100%" disablepictureinpicture="" playsinline=""
+                    style="transform: scaleX(-1);"></video>
+                <div class="scan-region-highlight"
+                    style="position: absolute; pointer-events: none; transform: scaleX(-1); width: 486px; height: 486px; top: 237.5px; left: 753px;">
+                    <svg class="scan-region-highlight-svg" viewBox="0 0 238 238" preserveAspectRatio="none"
+                        style="position:absolute;width:100%;height:100%;left:0;top:0;fill:none;stroke:#e9b213;stroke-width:4;stroke-linecap:round;stroke-linejoin:round">
+                        <path
+                            d="M31 2H10a8 8 0 0 0-8 8v21M207 2h21a8 8 0 0 1 8 8v21m0 176v21a8 8 0 0 1-8 8h-21m-176 0H10a8 8 0 0 1-8-8v-21">
+                        </path>
+                    </svg><svg class="code-outline-highlight" preserveAspectRatio="none"
+                        style="display:none;width:100%;height:100%;fill:none;stroke:#e9b213;stroke-width:5;stroke-dasharray:25;stroke-linecap:round;stroke-linejoin:round">
+                        <polygon></polygon>
+                    </svg></div>
+            </div>
+        </div>
+        <div class="alert alert-danger text-center mt-2" role="alert" id="alert" style="display: none;">
+        </div>
+        <div class="alert alert-danger text-center" role="alert" id="cam-has-camera" style="display: none;"></div>
+        <code id="instrctions" style="display: none;">
+        The browser is blocking the camera access<br>
+        1.) goto: chrome://flags/#unsafely-treat-insecure-origin-as-secure<br>
+        2.) enable the #unsafely-treat-insecure-origin-as-secure<br>
+        3.) add the host ip address: http://<span class="fw-bold" id="host">10.15.0.5</span><br>
+        4.) click relaunch to restart the browser
+    </code>
+        <div class="row mt-4">
+            <div class="col">
+                <label for="cam-list" class="form-label a">Choose camera: <span hidden="" id="cam-qr-result"
+                        style="color: inherit;">No QR code found</span></label>
+                <select id="cam-list" class="form-select">
+                    <option value="environment" selected="">Primary</option>
+                    <option value="user">Secondary</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="file-selector" class="form-label a">Scan from File: <span hidden=""
+                        id="file-qr-result">None</span></label>
+                <input class="form-control" type="file" id="file-selector">
+            </div>
+        </div>
+        <div class="d-flex gap-2 mt-2">
+            <button class="col btn btn-secondary" id="flash-toggle">ðŸ“¸ Flash: <span
+                    id="flash-state">off</span></button>
+        </div>
+        <div class="d-flex gap-2 mt-2">
+            <button class="col btn btn-secondary" style="display: none;" data-bs-toggle="modal"
+                data-bs-target="#approveModal" id="approveModal-toggle">Scan</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="approveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="approveModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content  bg-dark">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="userIp"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeApprove"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" class="row">
+                        <input hidden="" id="ip" name="ip">
+                        <input hidden="" id="mac" name="mac">
+                        <div class="row m-auto mb-3">
+                            <div class="card bg-dark">
+                                <h5 class="card-header">₱5 - 3 hours </h5>
+                                <div class="card-body d-grid gap-2 text-sm">
+                                    <p class="card-title">
+                                        Duration: <span class="text-primary fw-bold">3 hours </span><br>
+                                        Validity: <span class="text-primary fw-bold">3 hours </span> <small
+                                            class="text-secondary"> ( Pausable )</small><br>
+                                        Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                        <!--Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                            hs profile: <span class="text-primary fw-bold">C-default</span>-->
+                                    </p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" name="useMac">
+                                        <label class="form-check-label">
+                                            Use Mac address
+                                        </label>
+                                    </div>
+                                    <p></p>
+                                    <button type="submit"
+                                        
+                                        name="purchase" value="6" class="btn btn-primary">Purchase ₱5 - 3 hours
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-auto mb-3">
+                            <div class="card bg-dark">
+                                <h5 class="card-header">₱10 - 7 hours </h5>
+                                <div class="card-body d-grid gap-2 text-sm">
+                                    <p class="card-title">
+                                        Duration: <span class="text-primary fw-bold">7 hours </span><br>
+                                        Validity: <span class="text-primary fw-bold">7 hours </span> <small
+                                            class="text-secondary"> ( Pausable )</small><br>
+                                        Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                        <!--Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                            hs profile: <span class="text-primary fw-bold">C-default</span>-->
+                                    </p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" name="useMac">
+                                        <label class="form-check-label">
+                                            Use Mac address
+                                        </label>
+                                    </div>
+                                    <p></p>
+                                    <button type="submit"
+                                        
+                                        name="purchase" value="7" class="btn btn-primary">Purchase ₱10 - 7 hours
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-auto mb-3">
+                            <div class="card bg-dark">
+                                <h5 class="card-header">₱20 - 15 hours </h5>
+                                <div class="card-body d-grid gap-2 text-sm">
+                                    <p class="card-title">
+                                        Duration: <span class="text-primary fw-bold">15 hours </span><br>
+                                        Validity: <span class="text-primary fw-bold">1 day </span> <small
+                                            class="text-secondary"> ( Pausable )</small><br>
+                                        Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                        <!--Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                            hs profile: <span class="text-primary fw-bold">C-default</span>-->
+                                    </p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" name="useMac">
+                                        <label class="form-check-label">
+                                            Use Mac address
+                                        </label>
+                                    </div>
+                                    <p></p>
+                                    <button type="submit"
+                                        
+                                        name="purchase" value="8" class="btn btn-primary">Purchase ₱20 - 15 hours
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-auto mb-3">
+                            <div class="card bg-dark">
+                                <h5 class="card-header">₱50 - 4 days </h5>
+                                <div class="card-body d-grid gap-2 text-sm">
+                                    <p class="card-title">
+                                        Duration: <span class="text-primary fw-bold">4 days </span><br>
+                                        Validity: <span class="text-primary fw-bold">7 days </span> <small
+                                            class="text-secondary"> ( Pausable )</small><br>
+                                        Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                        <!--Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                            hs profile: <span class="text-primary fw-bold">C-default</span>-->
+                                    </p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" name="useMac">
+                                        <label class="form-check-label">
+                                            Use Mac address
+                                        </label>
+                                    </div>
+                                    <p></p>
+                                    <button type="submit"
+                                        
+                                        name="purchase" value="9" class="btn btn-primary">Purchase ₱50 - 4 days
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-auto mb-3">
+                            <div class="card bg-dark">
+                                <h5 class="card-header">₱100 - 15 days </h5>
+                                <div class="card-body d-grid gap-2 text-sm">
+                                    <p class="card-title">
+                                        Duration: <span class="text-primary fw-bold">15 days </span><br>
+                                        Validity: <span class="text-primary fw-bold">20 days </span> <small
+                                            class="text-secondary"> ( Pausable )</small><br>
+                                        Data: <span class="text-primary fw-bold">Unlimited</span><br>
+                                        <!--Server: <span class="text-primary fw-bold">C-Hotspot-Vlan-70</span><br>
+                                            hs profile: <span class="text-primary fw-bold">C-default</span>-->
+                                    </p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" name="useMac">
+                                        <label class="form-check-label">
+                                            Use Mac address
+                                        </label>
+                                    </div>
+                                    <p></p>
+                                    <button type="submit"
+                                        
+                                        name="purchase" value="10" class="btn btn-primary">Purchase ₱100 - 15 days
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        #video-container.example-style-1 .scan-region-highlight-svg,
+        #video-container.example-style-1 .code-outline-highlight {
+            stroke: #64a2f3 !important;
+        }
+
+        #flash-toggle {
+            display: none;
+        }
+    </style>
+    <div class="text-center text-muted align-self-center mt-3" style="font-size: 15px;" id="crdts">Powered by AZK
+        Manager v3.0.5</div>
+    <div class="text-center text-muted align-self-center mb-5" style="font-size: 10px;" id="crdts">Made by <a
+            class="text-decoration-none" href="https://github.com/Kintoyyy" id="kintoyyy">kintoyyy 🖤</a></div>
+
+    <script src="./src/switch.js.download"></script>
+</body>
+
+</html>
