@@ -1,0 +1,18 @@
+
+ERROR: SQLSTATE[HY000]General Error: 8 attempt to write a readonly database
+
+sudo chown -R :www-data /path/to/appdata/JuanFi-Manager
+sudo chmod -R 775 /path/to/appdata/JuanFi-Manager
+
+
+
+DOCKER COMPOSE:
+
+version: "2"
+services:
+  webserver:
+    image: php:7.4.3-apache
+    ports:
+      - "5808:80"
+    volumes:
+      - /path/to/appdata/JuanFi-Manager:/var/www/html
