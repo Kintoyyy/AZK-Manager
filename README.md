@@ -16,6 +16,7 @@
 ### **Features:** 
 - Voucher Generation Using API
 - JuanFi Dashboard
+- Resellers Dashboard
 - Reseller/Vendo Sales Report and Charts
 - Seller Customizations
 - Custom Currency 
@@ -34,6 +35,8 @@
 ![Dashboard-2](img/dashboard-2.PNG)
 ![Dashboard-3](img/dashboard-3.PNG)
 ![Dashboard-4](img/dashboard-4.PNG)
+### - **Voucher Reseller Dashboard**
+![Dashboard-5](img/dashboard-5.PNG)
 
 ### - **Printing page**
 #### Click View print page

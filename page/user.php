@@ -18,13 +18,7 @@ foreach ($hsAllUsers as $codes) {
 }
 $types = array_unique($typVouchers, SORT_REGULAR);
 
-
-if ($_SESSION['username'] == 'Villarin') {
-    $sharee = 50;
-} else {
-    $sharee = $MikroTik['share'];
-}
-
+$sharee = $MikroTik['share'];
 
 ?>
 
@@ -33,9 +27,11 @@ for ($i = 0; $i < $Totalsellers; $i++) {
     if (isset($sellers[$i]['comment']) && explode(",", ($sellers[$i]['comment']))[0] == 'VendoSales' && $sellers[$i]['name'] == $_SESSION['username']) {
         $last = explode("/", explode(" ", $sellers[$i]['last-started'])[0])[0] . '-' . explode("/", explode(" ", $sellers[$i]['last-started'])[0])[1];
         $today = explode("/", $clock[0]['date'])[0] . '-' . explode("/", $clock[0]['date'])[1];
-?>
+        ?>
         <div class="container py-3">
-            <h2 class="text-center">Welcome <Span><?= $sellers[$i]['name'] ?></Span>!</h2>
+            <h2 class="text-center">Welcome <Span>
+                    <?= $sellers[$i]['name'] ?>
+                </Span>!</h2>
             <div class="row mt-3">
                 <div class="col-xl mb-2">
                     <div class="card bg-light text-center">
@@ -43,19 +39,31 @@ for ($i = 0; $i < $Totalsellers; $i++) {
                             <h2>Profit</h2>
                         </div>
                         <div class="row card-body">
-                            <h3>Total: <span class="badge rounded-pill bg-primary"><?= $MikroTik['currency'] . number_format($sellers[$i]['source']) ?></span></h3>
-                            <p><span class="badge bg-warning text-dark sm"><?= $last . ' to ' . $today ?></span></p>
+                            <h3>Total: <span class="badge rounded-pill bg-primary">
+                                    <?= $MikroTik['currency'] . number_format($sellers[$i]['source']) ?>
+                                </span></h3>
+                            <p><span class="badge bg-warning text-dark sm">
+                                    <?= $last . ' to ' . $today ?>
+                                </span></p>
                             <div class="col">
                                 <div class="col row">
                                     <div class="col">
                                         <h2 class="col">Profit Share</h2>
-                                        <h1 class="card-title"><span class="badge rounded-pill bg-success"><?= $MikroTik['currency'] . number_format($sellers[$i]['source'] * (100 - $sharee) * .01)  ?></span></h3>
-                                            <span class="badge bg-warning text-dark sm"><?= (100 - $sharee) . "% of " . $MikroTik['currency'] . number_format($sellers[$i]['source']) ?></span>
+                                        <h1 class="card-title"><span class="badge rounded-pill bg-success">
+                                                <?= $MikroTik['currency'] . number_format($sellers[$i]['source'] * (100 - $sharee) * .01) ?>
+                                            </span></h3>
+                                            <span class="badge bg-warning text-dark sm">
+                                                <?=(100 - $sharee) . "% of " . $MikroTik['currency'] . number_format($sellers[$i]['source']) ?>
+                                            </span>
                                     </div>
                                     <div class="col">
                                         <h2 class="col">Last Profit</h2>
-                                        <h1 class="card-title"><span class="badge rounded-pill bg-success"><?= $MikroTik['currency'] . number_format(explode(",", ($sellers[$i]['comment']))[2] * (100 - $sharee) * .01) ?></span></h1>
-                                        <span class="badge bg-warning text-dark sm"><?= isset($sellers[$i]['last-started']) ? (explode(" ", $sellers[$i]['last-started']))[0] : '' ?></span>
+                                        <h1 class="card-title"><span class="badge rounded-pill bg-success">
+                                                <?= $MikroTik['currency'] . number_format(explode(",", ($sellers[$i]['comment']))[2] * (100 - $sharee) * .01) ?>
+                                            </span></h1>
+                                        <span class="badge bg-warning text-dark sm">
+                                            <?= isset($sellers[$i]['last-started']) ? (explode(" ", $sellers[$i]['last-started']))[0] : '' ?>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -66,23 +74,23 @@ for ($i = 0; $i < $Totalsellers; $i++) {
             </div>
             <div class="row mt-3">
                 <!--
-                <div class="col-xl col-md-6 mb-2">
-                    <div class="card bg-light text-center">
-                        <div class="card-header">
-                            <h2>Earnings</h2>
-                        </div>
-                        <div class="row card-body">
-                            <div class="col">
-                                <h2 class="col">Monthly</h2>
-                                <h1 class="card-title"><span class="badge bg-success"><?= $MikroTik['currency'] . number_format(explode(",", ($sellers[$i]['comment']))[1]) ?></span></h3>
+                        <div class="col-xl col-md-6 mb-2">
+                            <div class="card bg-light text-center">
+                                <div class="card-header">
+                                    <h2>Earnings</h2>
+                                </div>
+                                <div class="row card-body">
+                                    <div class="col">
+                                        <h2 class="col">Monthly</h2>
+                                        <h1 class="card-title"><span class="badge bg-success"><?= $MikroTik['currency'] . number_format(explode(",", ($sellers[$i]['comment']))[1]) ?></span></h3>
+                                    </div>
+                                    <div class="col">
+                                        <h2 class="col">Daily</h2>
+                                        <h1 class="card-title"><span class="badge bg-success"><?= $MikroTik['currency'] . number_format(explode(",", ($sellers[$i]['comment']))[3]) ?></span></h1>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <h2 class="col">Daily</h2>
-                                <h1 class="card-title"><span class="badge bg-success"><?= $MikroTik['currency'] . number_format(explode(",", ($sellers[$i]['comment']))[3]) ?></span></h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
+                        </div>-->
             </div>
             <div class="row mt-3">
                 <div class="col mb-2">
@@ -149,14 +157,15 @@ for ($i = 0; $i < $Totalsellers; $i++) {
                     </div>
                     <div class="card-footer">
                         <div class="d-flex gap-2 mt-2">
-                            <a class="col btn btn-warning" href="index.php?page=qr_scan">Scan Qr Code <i class="fas fa-qrcode"></i></a>
+                            <a class="col btn btn-warning" href="index.php?page=qr_scan">Scan Qr Code <i
+                                    class="fas fa-qrcode"></i></a>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="row mt-3">
+        <!-- <div class="row mt-3">
             <div class="col-xl mb-2">
                 <div class="card bg-light text-center">
                     <h5 class="card-header">
@@ -167,22 +176,8 @@ for ($i = 0; $i < $Totalsellers; $i++) {
                         </div>
                 </div>
             </div>
-        </div>
-<?php
+        </div> -->
+    <?php
     }
-}; ?>
-
-
-<script>
-    window.intergramId = "-856562388";
-    window.intergramCustomizations = {
-        titleClosed: 'Chat Admin',
-        titleOpen: 'Hello <?= $_SESSION['username'] ?>!',
-        introMessage: 'How can I help you? to request please state your name and the type of voucher you want ex. Juan - P5 - 300pcs',
-        autoResponse: 'Please wait for the reply or message me through messenger',
-        autoNoResponse: 'You message has been sent to the admin please wait',
-        mainColor: "gray",
-        alwaysUseFloatingButton: true
-    };
-</script>
-<script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js?ver=<?php echo rand(); ?>"></script>
+}
+; ?>
