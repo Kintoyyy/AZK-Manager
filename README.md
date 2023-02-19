@@ -61,7 +61,7 @@
 ### - Start the **Apache** server (**no need MySQL**)
 ![server-setup](img/xampp.PNG)
 
-# **4. Setup Mikrotik**
+# **3. Setup Mikrotik**
 ### add the **on login** and **on logout** script in to your hotspot profile in order for the dashboard to display the informations
 ![mt-setup](img/mt-hs-setup.png)
 
@@ -224,7 +224,7 @@
         }
     }
 
-# **5. Done Congrats!**
+# **4. Done Congrats!**
 ## You can now access the **dashboard** using the **admin** button or typing **[localhost](http://localhost/)** in your browser
 ![files](img/open-dashboard.png)
 
