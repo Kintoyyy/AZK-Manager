@@ -5,8 +5,9 @@
     FB: @kint.oyyy508
 
     Donations would be appreciated
-    Gcash account: Kent R. 09760009422
-
+    Gcash/Paymaya account: Kent R. 09760009422
+    Paypal account: https://www.paypal.com/paypalme/Kintoyyyy
+    
 
 
 # **View Preview Page**
