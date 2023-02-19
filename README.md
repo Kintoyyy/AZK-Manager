@@ -232,20 +232,10 @@
     Password: admin123
     //you can change this on the reset password page
 
-    Note:If you screen is blank please create a dummy hotspot user
-    
-    name:dummy
-    pass:blank
-    Profile:default
-    comment:0m,0,0,JuanFi
-
 
 > ## **This Voucher Generator/manager Only works for [ivanalayan15/JuanFi](https://github.com/ivanalayan15/JuanFi) system**
 
 > - ### Facebook Community: https://www.facebook.com/groups/1172413279934139
 > - JuanFi is an open source system for coinslot integration for mikrotik hotspot
-> - Donation is very welcome, you can donate to juanfi system developer.
-> - Gcash account: Ivan Julius Alayan 09175425572
-> - Paypal account: https://www.paypal.com/paypalme/ivanalayan
 
 
