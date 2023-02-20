@@ -251,7 +251,7 @@
 ## You can now access the **dashboard** using the **admin** button or typing **[localhost](http://localhost/)** in your browser
 ![files](img/open-dashboard.png)
 
-    Username: admin
+    Username: Admin
     Password: admin123
     //you can change this on the reset password page
 
