@@ -151,6 +151,28 @@
 	}
     }
     
+## **or if you have a custom juanfi onlogin script insert the script**
+
+	### Azk Manager Script
+
+		:if ( [/system script find name=$vendo] != "" ) do={ 
+			:local getVendorScript [/system script get [find name=$vendo] comment];
+			:local vendorArray [:toarray [:pick $getVendorScript ([:find $getVendorScript ","]) [:len $getVendorScript]]];
+			:local getMontlhySales [:pick $vendorArray 0];
+		:local getDailySales [:pick $vendorArray 2];
+			:local getLastSales [:pick $vendorArray 1];
+			:local addMonthly ($amt + $getMontlhySales);
+		:local addDaily ($amt + $getDailySales);
+			:local getSellerIncome [:put ([/system script get [find name=$vendo] source])];
+			:local getSellerSales ($amt + $getSellerIncome);
+			/system script set source="$getSellerSales" comment="VendoSales,$addMonthly,$getLastSales,$addDaily" $vendo;
+		} else={ 
+			:local comment "VendoSales,$amt,0,0";
+			/system script add name=$vendo owner=admin comment=$comment source="$amt";
+		};
+
+	### End Azk Manager Script
+    
 
 ## **On logout Script**
 
