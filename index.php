@@ -58,4 +58,14 @@ function get_that_filetime($file_url = false) {
     <div class="text-center text-muted align-self-center mb-5" style="font-size: 10px;" id=crdts>Gcash: <a class="text-decoration-none" href=https://www.facebook.com/kint.oyyy508>09760009422</a></div>
 </body>
 <script src="src/js/switch.js?ver=<?php echo rand(); ?>"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPJDPP6XP6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LPJDPP6XP6');
+</script>
 </html>
