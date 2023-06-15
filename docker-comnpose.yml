@@ -1,0 +1,10 @@
+version: '3.9'
+name: dock-php-apache-1
+services:
+  php_apache:
+    container_name: php_apache
+    image: php:8.0-apache
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - 80:80
