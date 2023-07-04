@@ -25,7 +25,8 @@
 - Hotspot Subscribers
 - Proper Darkmode
 ### **Tested only on RouterOS v6.4x.xx**
-### **Docker support soon!**
+### **Run using Docker**
+    docker compose up
 
 # **Screenshots**
 ### - **Login Page**
