@@ -47,6 +47,9 @@ if (PDO_FetchAll("SELECT COUNT(*) FROM settings")[0]['COUNT(*)'] != 0) {
                         <a class="nav-link" href="index.php?page=active_table">Active</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=users">Users</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php?page=generate">Generate</a>
                     </li>
                     <li class="nav-item">

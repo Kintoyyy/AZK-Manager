@@ -80,7 +80,7 @@ function genCharacters($type, $len = 5, $prefix = 0)
 {
     switch ($type) {
         case '1':
-            $char = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            $char = "0123456789abcdefghijklmnopqrstuvwxyz";
             break;
         case '2':
             $char = "abcdefghijklmnopqrstuvwxyz";
@@ -98,13 +98,13 @@ function genCharacters($type, $len = 5, $prefix = 0)
             $char = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&";
             break;
         case '7':
-            $char = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&1234567890";
+            $char = "abcdefghijklmnopqrstuvwxyz1234567890";
             break;
         case '8':
             $char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&";
             break;
         default:
-            $char = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            $char = "0123456789abcdefghijklmnopqrstuvwxyz";
             break;
     }
     return $prefix . substr(str_shuffle($char), - ($len - strlen($prefix)));
