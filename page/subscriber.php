@@ -16,23 +16,27 @@ if (isset($_POST['remove'])) {
 //add function (working)
 if (isset($_POST['add'])) {
     $comment = "subscriber," . $_POST['due'] . "," . $_POST['price'] . "," . "unpaid" . "," . $_POST['number'] . "," . $_POST['facebook'];
-    $API->comm("/ip/hotspot/user/add", array(
-        "server" => $_POST['server'],
-        "name" => $_POST['username'],
-        "password" => $_POST['password'],
-        "profile" => $_POST['profile'],
-        "comment" => "$comment",
-    )
+    $API->comm(
+        "/ip/hotspot/user/add",
+        array(
+            "server" => $_POST['server'],
+            "name" => $_POST['username'],
+            "password" => $_POST['password'],
+            "profile" => $_POST['profile'],
+            "comment" => "$comment",
+        )
     );
     echo "<script>window.location.href = 'index.php?page=subscriber';</script>";
 }
 //disable function (Working)
 if (isset($_POST['disable'])) {
     $id = explode(",", ($_POST['disable']));
-    $API->comm("/ip/hotspot/user/set", array(
-        ".id" => $id[0],
-        "disabled" => $id[1],
-    )
+    $API->comm(
+        "/ip/hotspot/user/set",
+        array(
+            ".id" => $id[0],
+            "disabled" => $id[1],
+        )
     );
     echo "<script>window.location.href = 'index.php?page=subscriber';</script>";
 }
@@ -40,15 +44,17 @@ if (isset($_POST['disable'])) {
 //edit function (not Working)
 if (isset($_POST['edit'])) {
     $comment = "subscriber," . $_POST['due'] . "," . $_POST['price'] . "," . $_POST['status'] . "," . $_POST['number'] . "," . $_POST['facebook'];
-    $API->comm("/ip/hotspot/user/set", array(
-        ".id" => $_POST['edit'],
-        "name" => $_POST['username'],
-        "password" => $_POST['password'],
-        "profile" => $_POST['profile'],
-        "server" => $_POST['server'],
-        //"mac-address" => $_POST['mac-address'], // <-- Problem
-        "comment" => $comment,
-    )
+    $API->comm(
+        "/ip/hotspot/user/set",
+        array(
+            ".id" => $_POST['edit'],
+            "name" => $_POST['username'],
+            "password" => $_POST['password'],
+            "profile" => $_POST['profile'],
+            "server" => $_POST['server'],
+            //"mac-address" => $_POST['mac-address'], // <-- Problem
+            "comment" => $comment,
+        )
     );
     echo "<script>window.location.href = 'index.php?page=subscriber';</script>";
 }
@@ -57,10 +63,12 @@ if (isset($_POST['edit'])) {
 if (isset($_POST['paid'])) {
     $user = explode(",", $_POST['paid']);
     $comment = "subscriber," . $user[1] . "," . $user[2] . "," . $user[3] . "," . $user[4] . "," . $user[5];
-    $API->comm("/ip/hotspot/user/set", array(
-        ".id" => $user[0],
-        "comment" => $comment,
-    )
+    $API->comm(
+        "/ip/hotspot/user/set",
+        array(
+            ".id" => $user[0],
+            "comment" => $comment,
+        )
     );
 
     echo "<script>window.location.href = 'index.php?page=subscriber';</script>";
@@ -77,7 +85,7 @@ if (isset($_POST['paid'])) {
         </button>
     </div>
     <div class="row" style="overflow-x:auto;">
-        <table id="Subscriber" class="table table-hover table-sm" width="100%">
+        <table id="Users" class="table table-hover table-sm" width="100%">
             <thead>
                 <tr>
                     <th>Name <div class="badge"></div>
@@ -97,16 +105,26 @@ if (isset($_POST['paid'])) {
                 <?php
                 foreach ($data as $client) {
                     if (isset($client['comment']) && explode(",", $client['comment'])[0] == "subscriber") {
+                        $comments = explode(",", $client['comment']);
+                        $id = $client['.id'];
+                        $name = $client['name'];
+                        $disabled = $client['disabled'];
+                        $profile = $client['profile'];
+                        $currency = $MikroTik['currency'];
+                        $status = $comments[3] ?? 'Error';
+                        $amount = $comments[4];
+                        $fbUsername = $comments[5];
+
                         echo '<tr>';
-                        echo '<td><label class="form-check-label" for="check_list">' . $client['name'] . '</label></td>';
+                        echo '<td><label class="form-check-label" for="check_list">' . $name . '</label></td>';
                         echo '<td>';
-                        if ($client['disabled'] == "false") {
-                            switch (explode(",", $client['comment'])[3]) {
+                        if ($disabled == "false") {
+                            switch ($status) {
                                 case "paid":
-                                    echo "<span class='badge mx-1 fw-bold rounded-pill bg-success'>" . explode(",", $client['comment'])[3] . "</span>";
+                                    echo "<span class='badge mx-1 fw-bold rounded-pill bg-success'>" . $status . "</span>";
                                     break;
                                 case "unpaid":
-                                    echo "<span class='badge mx-1 fw-bold rounded-pill bg-warning'>" . explode(",", $client['comment'])[3] . "</span>";
+                                    echo "<span class='badge mx-1 fw-bold rounded-pill bg-warning'>" . $status . "</span>";
                                     break;
                                 default:
                                     echo "<span class='badge mx-1 fw-bold rounded-pill bg-danger'>Error!</span>";
@@ -115,32 +133,21 @@ if (isset($_POST['paid'])) {
                             echo "<span class='badge mx-1 fw-bold rounded-pill bg-secondary'>Disabled</span>";
                         }
                         echo '</td>';
-                        echo "<td>" . $client['profile'] . "</td>";
-                        echo "<td>" . $MikroTik['currency'] . explode(",", $client['comment'])[2] . "</td>";
-                        echo "<td>" . number_format(explode(",", $client['comment'])[1]) . "</td>";
-                        echo "<td>" . $client['server'] = $client['server'] ?? ' ' . "</td>";
-                        echo "<td>" . $client['mac-address'] = $client['mac-address'] ?? ' ' . "</td>";
-                        echo "<td>" . explode(",", $client['comment'])[4] . "</td>";
-                        echo "<td><a href='https://www.facebook.com/" . explode(",", $client['comment'])[5] . "'>@" . explode(",", $client['comment'])[5] . "</a></td>";
+                        echo "<td>" . $profile . "</td>";
+                        echo "<td>" . $currency . $amount . "</td>";
+                        echo "<td>" . number_format($comments[1]) . "</td>";
+                        echo "<td>" . ($client['server'] ?? ' ') . "</td>";
+                        echo "<td>" . ($client['mac-address'] ?? ' ') . "</td>";
+                        echo "<td>" . $comments[4] . "</td>";
+                        echo "<td><a href='https://www.facebook.com/" . $fbUsername . "'>@" . $fbUsername . "</a></td>";
                         echo '<td><button data-bs-toggle="modal" data-bs-target="#editSub" 
-                                            onclick="edit(\'' . $client['.id'] .
-                            '\',\'' . $client['name'] .
-                            '\',\'' . $client['password'] .
-                            '\',\'' . (explode(",", $client['comment'])[3] ? explode(",", $client['comment'])[3] : 'Error') .
-                            '\',\'' . explode(",", $client['comment'])[4] .
-                            '\',\'' . explode(",", $client['comment'])[5] .
-                            '\',\'' . explode(",", $client['comment'])[2] .
-                            '\',\'' . explode(",", $client['comment'])[1] .
-                            '\',\'' . $client['profile'] .
-                            '\',\'' . $client['server'] .
-                            '\',\'' . $client['mac-address'] .
-                            '\',\'' . $client['disabled'] .
-                            '\')" class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>';
+                                onclick="edit(\'' . $id . '\',\'' . $name . '\',\'' . $client['password'] . '\',\'' . $status . '\',\'' . $amount . '\',\'' . $fbUsername . '\',\'' . $comments[2] . '\',\'' . $comments[1] . '\',\'' . $profile . '\',\'' . ($client['server'] ?? '') . '\',\'' . ($client['mac-address'] ?? '') . '\',\'' . $disabled . '\')" class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>';
                         echo '</tr>';
                     }
                 }
                 ?>
             </tbody>
+
         </table>
     </div>
 </div>
@@ -261,7 +268,7 @@ if (isset($_POST['paid'])) {
                         <div class="input-group-prepend">
                             <label class="input-group-text">Password</label>
                         </div>
-                        <input type="password" aria-label="Limit" class="form-control" value="" id="password"
+                        <input type="text" aria-label="Limit" class="form-control" value="" id="password"
                             name="password">
                     </div>
                     <div class="input-group mb-3">
@@ -291,13 +298,13 @@ if (isset($_POST['paid'])) {
                             ?>
                         </select>
                     </div>
-                    <div class="input-group mb-3">
+                    <!-- <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Mac Address</label>
                         </div>
                         <input type="text" class="form-control" value="" id="mac-address" name="mac-address"
                             maxlength="17">
-                    </div>
+                    </div> -->
                     <!--Profile-->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -341,10 +348,13 @@ if (isset($_POST['paid'])) {
 </div>
 <script>
     $(document).ready(function () {
-        $('#Subscriber').DataTable();
+        $('#Users').DataTable();
     });
 
     function edit(id, name, password, status, contact, fb, price, due, profile, server, mac, disable) {
+        if(server == ""){
+            server = "all";
+        }
         $('#id,#remove,#edit').val(id);
         $('#username').val(name);
         $('#password').val(password);
