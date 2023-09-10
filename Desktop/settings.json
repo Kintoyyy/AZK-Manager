@@ -1,0 +1,81 @@
+{
+    "application": {
+        "single_instance_guid": "",
+        "dpi_aware": true
+    },
+    "debugging": {
+        "show_console": false,
+        "subprocess_show_console": false,
+        "log_level": "DEBUG4",
+        "log_file": "debug.log"
+    },
+    "main_window": {
+        "title": "Azk Manager V3.0.6",
+        "icon": "logo.ico",
+        "default_size": [
+            300,
+            200
+        ],
+        "minimum_size": [
+            300,
+            200
+        ],
+        "maximum_size": [
+            300,
+            200
+        ],
+        "disable_maximize_button": true,
+        "center_on_screen": true,
+        "start_maximized": false,
+        "start_fullscreen": false,
+        "always_on_top": false,
+        "minimize_to_tray": true,
+        "minimize_to_tray_message": "Minimized to tray, Server is still running :)"
+    },
+    "popup_window": {
+        "icon": "logo.ico",
+        "fixed_title": "",
+        "center_relative_to_parent": true,
+        "default_size": [
+            300,
+            200
+        ]
+    },
+    "web_server": {
+        "listen_on": [
+            "127.0.0.1",
+            80
+        ],
+        "www_directory": "www",
+        "index_files": [
+            "index.php"
+        ],
+        "cgi_interpreter": "php/php-cgi.exe",
+        "cgi_extensions": [
+            "php"
+        ],
+        "cgi_temp_dir": "",
+        "404_handler": "",
+        "hide_files": []
+    },
+    "chrome": {
+        "log_file": "debug.log",
+        "log_severity": "default",
+        "cache_path": "webcache",
+        "external_drag": true,
+        "external_navigation": true,
+        "reload_page_F5": true,
+        "devtools_F12": false,
+        "remote_debugging_port": 0,
+        "command_line_switches": {},
+        "enable_downloads": true,
+        "context_menu": {
+            "enable_menu": true,
+            "navigation": true,
+            "print": true,
+            "view_source": false,
+            "open_in_external_browser": true,
+            "devtools": false
+        }
+    }
+}

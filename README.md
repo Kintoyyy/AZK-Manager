@@ -51,19 +51,7 @@
 ![Print-page](img/telegram-1.png)
 
 
-
-# **1. Add the files to the htdocs Folder**
-### - Select all the files in this repository
-![files](img/select-files.PNG)
-### - remove all the files in the **[htdocs](C:\xampp\htdocs)** folder located inside **C:\xampp\htdocs** and paste the files inside
-![files](img/paste-files.png)
-
-# **2. Setting up the server**
-## Install and run **[XAMPP](https://www.apachefriends.org/)** server
-### - Start the **Apache** server (**no need MySQL**)
-![server-setup](img/xampp.PNG)
-
-# **3. Setup Mikrotik**
+# **1. Setup Mikrotik**
 ### add the **on login** and **on logout** script in to your hotspot profile in order for the dashboard to display the informations
 ![mt-setup](img/mt-hs-setup.png)
 
@@ -247,10 +235,9 @@
             :log warning ("Subscriber Logs - Changed : " . $name . " - $date - $price - unpaid - $contact - $fb");
         }
     }
-
-# **4. Done Congrats!**
-## You can now access the **dashboard** using the **admin** button or typing **[localhost](http://localhost/)** in your browser
-![files](img/open-dashboard.png)
+# **2. download the Desktop folder and Run the Azk-Manager.exe**
+# **3. Done Congrats!**
+## You can now access the **dashboard**, click the server url in the window
 
     Username: Admin
     Password: admin123
