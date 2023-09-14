@@ -9,7 +9,12 @@ if ( isset( $_POST[ 'selectiface' ] ) ) {
 }
 
 $data     = $API->comm( "/system/script/print", array( "?name" => "todayincome" ) )[ 0 ];
-$exploded = array_reverse( explode( ",", str_replace( "Chart", "", $data[ "comment" ] ) ) );
+if (isset($data["comment"]) && $data["comment"] !== null) {
+    $exploded = array_reverse(explode(",", str_replace("Chart", "", $data["comment"])));
+} else {
+    $exploded = [];
+}
+
 array_pop( $exploded );
 $exploded[] = $data[ "source" ];
 $exploded   = implode( ",", $exploded );
