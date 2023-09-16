@@ -1,72 +1,72 @@
 <?php
 if ( !isset( $_SESSION[ 'loggedin' ] ) || $_SESSION[ 'adminaccess' ] === 'no' ) {
-  header( 'location: logout.php' );
-  exit;
+    header( 'location: logout.php' );
+    exit;
 }
 
-$data = $API->comm('/ip/hotspot/user/print');
-$srvlist = $API->comm("/ip/hotspot/print");
-$getprofile = $API->comm("/ip/hotspot/user/profile/print");
+$data       = $API->comm( '/ip/hotspot/user/print' );
+$srvlist    = $API->comm( "/ip/hotspot/print" );
+$getprofile = $API->comm( "/ip/hotspot/user/profile/print" );
 
 //remove function (working)
-if (isset($_POST['remove'])) {
-    $API->comm("/ip/hotspot/user/remove", array(".id" => $_POST['remove']));
+if ( isset( $_POST[ 'remove' ] ) ) {
+    $API->comm( "/ip/hotspot/user/remove", array( ".id" => $_POST[ 'remove' ] ) );
     echo "<script>window.location.href = 'index.php?page=subscriber';</script>";
 }
 //add function (working)
-if (isset($_POST['add'])) {
-    $comment = "subscriber," . $_POST['due'] . "," . $_POST['price'] . "," . "unpaid" . "," . $_POST['number'] . "," . $_POST['facebook'];
+if ( isset( $_POST[ 'add' ] ) ) {
+    $comment = "subscriber," . $_POST[ 'due' ] . "," . $_POST[ 'price' ] . "," . "unpaid" . "," . $_POST[ 'number' ] . "," . $_POST[ 'facebook' ];
     $API->comm(
         "/ip/hotspot/user/add",
         array(
-            "server" => $_POST['server'],
-            "name" => $_POST['username'],
-            "password" => $_POST['password'],
-            "profile" => $_POST['profile'],
-            "comment" => "$comment",
+            "server"   => $_POST[ 'server' ],
+            "name"     => $_POST[ 'username' ],
+            "password" => $_POST[ 'password' ],
+            "profile"  => $_POST[ 'profile' ],
+            "comment"  => "$comment",
         )
     );
     echo "<script>window.location.href = 'index.php?page=subscriber';</script>";
 }
 //disable function (Working)
-if (isset($_POST['disable'])) {
-    $id = explode(",", ($_POST['disable']));
+if ( isset( $_POST[ 'disable' ] ) ) {
+    $id = explode( ",", ( $_POST[ 'disable' ] ) );
     $API->comm(
         "/ip/hotspot/user/set",
         array(
-            ".id" => $id[0],
-            "disabled" => $id[1],
+            ".id"      => $id[ 0 ],
+            "disabled" => $id[ 1 ],
         )
     );
     echo "<script>window.location.href = 'index.php?page=subscriber';</script>";
 }
 
 //edit function (not Working)
-if (isset($_POST['edit'])) {
-    $comment = "subscriber," . $_POST['due'] . "," . $_POST['price'] . "," . $_POST['status'] . "," . $_POST['number'] . "," . $_POST['facebook'];
+if ( isset( $_POST[ 'edit' ] ) ) {
+    $comment = "subscriber," . $_POST[ 'due' ] . "," . $_POST[ 'price' ] . "," . $_POST[ 'status' ] . "," . $_POST[ 'number' ] . "," . $_POST[ 'facebook' ];
     $API->comm(
         "/ip/hotspot/user/set",
         array(
-            ".id" => $_POST['edit'],
-            "name" => $_POST['username'],
-            "password" => $_POST['password'],
-            "profile" => $_POST['profile'],
-            "server" => $_POST['server'],
+            ".id"      => $_POST[ 'edit' ],
+            "name"     => $_POST[ 'username' ],
+            "password" => $_POST[ 'password' ],
+            "profile"  => $_POST[ 'profile' ],
+            "server"   => $_POST[ 'server' ],
             //"mac-address" => $_POST['mac-address'], // <-- Problem
-            "comment" => $comment,
+            "comment"  => $comment,
         )
     );
     echo "<script>window.location.href = 'index.php?page=subscriber';</script>";
 }
 
 //Paid function (Working)
-if (isset($_POST['paid'])) {
-    $user = explode(",", $_POST['paid']);
-    $comment = "subscriber," . $user[1] . "," . $user[2] . "," . $user[3] . "," . $user[4] . "," . $user[5];
+if ( isset( $_POST[ 'paid' ] ) ) {
+    $user    = explode( ",", $_POST[ 'paid' ] );
+    $comment = "subscriber," . $user[ 1 ] . "," . $user[ 2 ] . "," . $user[ 3 ] . "," . $user[ 4 ] . "," . $user[ 5 ];
     $API->comm(
         "/ip/hotspot/user/set",
         array(
-            ".id" => $user[0],
+            ".id"     => $user[ 0 ],
             "comment" => $comment,
         )
     );
@@ -75,17 +75,26 @@ if (isset($_POST['paid'])) {
 }
 ?>
 
-<link rel="stylesheet" type="text/css" href="../src/css/datatables.min.css?ver=<?php echo rand(); ?>" />
-<script type="text/javascript" src="../src/js/datatables.min.js?ver=<?php echo rand(); ?>"></script>
+<link rel="stylesheet"
+    type="text/css"
+    href="../src/css/datatables.min.css?ver=<?php echo rand(); ?>" />
+<script type="text/javascript"
+    src="../src/js/datatables.min.js?ver=<?php echo rand(); ?>"></script>
 
 <div class="container py-5">
     <div class=" mb-2">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSub">
+        <button type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#addSub">
             Add Users
         </button>
     </div>
-    <div class="row" style="overflow-x:auto;">
-        <table id="Users" class="table table-hover table-sm" width="100%">
+    <div class="row"
+        style="overflow-x:auto;">
+        <table id="Users"
+            class="table table-hover table-sm"
+            width="100%">
             <thead>
                 <tr>
                     <th>Name <div class="badge"></div>
@@ -103,22 +112,25 @@ if (isset($_POST['paid'])) {
             </thead>
             <tbody>
                 <?php
-                foreach ($data as $client) {
-                    if (isset($client['comment']) && explode(",", $client['comment'])[0] == "subscriber") {
-                        $comments = explode(",", $client['comment']);
-                        $id = $client['.id'];
-                        $name = $client['name'];
-                        $disabled = $client['disabled'];
-                        $profile = $client['profile'];
-                        $currency = $MikroTik['currency'];
-                        $status = $comments[3] ?? 'Error';
-                        $amount = $comments[4] ?? null;
-                        $fbUsername = $comments[5] ?? null;
+                foreach ( $data as $client ) {
+                    if ( isset( $client[ 'comment' ] ) && explode( ",", $client[ 'comment' ] )[ 0 ] == "subscriber" ) {
+                        $comments = explode( ",", $client[ 'comment' ] );
+
+                        $id         = $client[ '.id' ];
+                        $name       = $client[ 'name' ];
+                        $disabled   = $client[ 'disabled' ];
+                        $profile    = $client[ 'profile' ];
+                        $currency   = $MikroTik[ 'currency' ];
+                        $dueDate    = $comments[ 1 ] ?? 0;
+                        $status     = $comments[ 3 ] ?? 'Error';
+                        $amount     = $comments[ 2 ] ?? null;
+                        $contact    = $comments[ 4 ] ?? null;
+                        $fbUsername = $comments[ 5 ] ?? null;
 
                         echo '<tr>';
                         echo '<td><label class="form-check-label" for="check_list">' . $name . '</label></td>';
                         echo '<td>';
-                        if ($disabled == "false") {
+                        if ( $disabled == "false" ) {
                             switch ($status) {
                                 case "paid":
                                     echo "<span class='badge mx-1 fw-bold rounded-pill bg-success'>" . $status . "</span>";
@@ -129,19 +141,20 @@ if (isset($_POST['paid'])) {
                                 default:
                                     echo "<span class='badge mx-1 fw-bold rounded-pill bg-danger'>Error!</span>";
                             }
-                        } else {
+                        }
+                        else {
                             echo "<span class='badge mx-1 fw-bold rounded-pill bg-secondary'>Disabled</span>";
                         }
                         echo '</td>';
                         echo "<td>" . $profile . "</td>";
                         echo "<td>" . $currency . $amount . "</td>";
-                        echo "<td>" . number_format((int )$comments[1] ?? 0) . "</td>";
-                        echo "<td>" . ($client['server'] ?? ' ') . "</td>";
-                        echo "<td>" . ($client['mac-address'] ?? ' ') . "</td>";
-                        echo "<td>" . $amount ?? ''. "</td>";
+                        echo "<td>" . number_format( (int) $dueDate ?? 0 ) . "</td>";
+                        echo "<td>" . ( $client[ 'server' ] ?? ' ' ) . "</td>";
+                        echo "<td>" . ( $client[ 'mac-address' ] ?? ' ' ) . "</td>";
+                        echo "<td>" . $contact . "</td>";
                         echo "<td><a href='https://www.facebook.com/" . $fbUsername . "'>@" . $fbUsername . "</a></td>";
                         echo '<td><button data-bs-toggle="modal" data-bs-target="#editSub" 
-                                onclick="edit(\'' . $id . '\',\'' . $name . '\',\'' . $client['password'] . '\',\'' . $status . '\',\'' . $amount . '\',\'' . $fbUsername . '\',\'' . ($comments[2] ?? '') . '\',\'' . $comments[1] . '\',\'' . $profile . '\',\'' . ($client['server'] ?? '') . '\',\'' . ($client['mac-address'] ?? '') . '\',\'' . $disabled . '\')" class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>';
+                                onclick="edit(\'' . $id . '\',\'' . $name . '\',\'' . $client[ 'password' ] . '\',\'' . $status . '\',\'' . $contact . '\',\'' . $fbUsername . '\',\'' . $amount . '\',\'' . $comments[ 1 ] . '\',\'' . $profile . '\',\'' . ( $client[ 'server' ] ?? '' ) . '\',\'' . ( $client[ 'mac-address' ] ?? '' ) . '\',\'' . $disabled . '\')" class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>';
                         echo '</tr>';
                     }
                 }
@@ -155,12 +168,20 @@ if (isset($_POST['paid'])) {
 
 
 <!--add-->
-<div class="modal fade" id="addSub" tabindex="-1" aria-labelledby="addSubLabel" aria-hidden="true">
+<div class="modal fade"
+    id="addSub"
+    tabindex="-1"
+    aria-labelledby="addSubLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content bg-light">
             <div class="modal-header">
-                <h5 class="modal-title" id="addSubLabel">Add</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title"
+                    id="addSubLabel">Add</h5>
+                <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
             </div>
             <form method="post">
                 <div class="modal-body">
@@ -169,38 +190,57 @@ if (isset($_POST['paid'])) {
                         <div class="input-group-prepend">
                             <label class="input-group-text">Username</label>
                         </div>
-                        <input type="text" aria-label="Limit" class="form-control" value="" name="username">
+                        <input type="text"
+                            aria-label="Limit"
+                            class="form-control"
+                            value=""
+                            name="username">
                     </div>
                     <!--Password-->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Password</label>
                         </div>
-                        <input type="password" aria-label="Limit" class="form-control" value="" name="password">
+                        <input type="password"
+                            aria-label="Limit"
+                            class="form-control"
+                            value=""
+                            name="password">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Number</label>
                         </div>
-                        <input type="number" class="form-control" value="" name="number">
+                        <input type="number"
+                            class="form-control"
+                            value=""
+                            name="number">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Facebook</label>
                         </div>
-                        <input type="text" class="form-control" value="" name="facebook">
+                        <input type="text"
+                            class="form-control"
+                            value=""
+                            name="facebook">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Price</label>
                         </div>
-                        <input type="number" class="form-control" value="" name="price">
+                        <input type="number"
+                            class="form-control"
+                            value=""
+                            name="price">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Due Date</label>
                         </div>
                         <!--<input type="text" class="form-control" value="" name="due">-->
-                        <select class="form-select" name="due" value="">
-                            <?php for ($i = 1; $i < 32; $i++) {
+                        <select class="form-select"
+                            name="due"
+                            value="">
+                            <?php for ( $i = 1; $i < 32; $i++ ) {
                                 echo "<option value='" . $i . "'>" . $i . "</option>";
                             }
                             ?>
@@ -209,12 +249,16 @@ if (isset($_POST['paid'])) {
                     <!--Profile-->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="profile">Profile</label>
+                            <label class="input-group-text"
+                                for="profile">Profile</label>
                         </div>
-                        <select class="form-select" name="profile" name="profile" value="">
-                            <?php $TotalReg = count($getprofile);
-                            for ($i = 0; $i < $TotalReg; $i++) {
-                                echo "<option>" . $getprofile[$i]['name'] . "</option>";
+                        <select class="form-select"
+                            name="profile"
+                            name="profile"
+                            value="">
+                            <?php $TotalReg = count( $getprofile );
+                            for ( $i = 0; $i < $TotalReg; $i++ ) {
+                                echo "<option>" . $getprofile[ $i ][ 'name' ] . "</option>";
                             }
                             ?>
                         </select>
@@ -222,45 +266,71 @@ if (isset($_POST['paid'])) {
                     <!--Server-->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="server">Server</label>
+                            <label class="input-group-text"
+                                for="server">Server</label>
                         </div>
-                        <select class="form-select" name="server" name="server" value="">
+                        <select class="form-select"
+                            name="server"
+                            name="server"
+                            value="">
                             <option>all</option>
-                            <?php $TotalReg = count($srvlist);
-                            for ($i = 0; $i < $TotalReg; $i++) {
-                                echo "<option>" . $srvlist[$i]['name'] . "</option>";
+                            <?php $TotalReg = count( $srvlist );
+                            for ( $i = 0; $i < $TotalReg; $i++ ) {
+                                echo "<option>" . $srvlist[ $i ][ 'name' ] . "</option>";
                             }
                             ?>
                         </select>
                     </div>
-                    <button type="submit" name="add" class="btn btn-primary">Add</button>
+                    <button type="submit"
+                        name="add"
+                        class="btn btn-primary">Add</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 <!--edit-->
-<div class="modal fade" id="editSub" tabindex="-1" aria-labelledby="editSubLabel" aria-hidden="true">
+<div class="modal fade"
+    id="editSub"
+    tabindex="-1"
+    aria-labelledby="editSubLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content bg-light">
             <div class="modal-header">
-                <h5 class="modal-title" id="editSubLabel">Edit</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title"
+                    id="editSubLabel">Edit</h5>
+                <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
             </div>
             <form method="post">
                 <div class="modal-body">
-                    <span id="editmodal" class="badge badge-primary"></span>
+                    <span id="editmodal"
+                        class="badge badge-primary"></span>
                     <!--Name-->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Username</label>
                         </div>
-                        <input type="text" class="form-control" value="" id="username" name="username">
-                        <select class="form-select col-3" id="status" name="status" value="">
+                        <input type="text"
+                            class="form-control"
+                            value=""
+                            id="username"
+                            name="username">
+                        <select class="form-select col-3"
+                            id="status"
+                            name="status"
+                            value="">
                             <option value="unpaid">Unpaid</option>
                             <option value="paid">Paid</option>
                         </select>
-                        <input type="text" class="form-control col-2" value="" id="id" disabled>
+                        <input type="text"
+                            class="form-control col-2"
+                            value=""
+                            id="id"
+                            disabled>
 
                     </div>
                     <!--Password-->
@@ -268,31 +338,51 @@ if (isset($_POST['paid'])) {
                         <div class="input-group-prepend">
                             <label class="input-group-text">Password</label>
                         </div>
-                        <input type="text" aria-label="Limit" class="form-control" value="" id="password"
+                        <input type="text"
+                            aria-label="Limit"
+                            class="form-control"
+                            value=""
+                            id="password"
                             name="password">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Number</label>
                         </div>
-                        <input type="text" class="form-control" value="" id="number" name="number" maxlength="12">
+                        <input type="text"
+                            class="form-control"
+                            value=""
+                            id="number"
+                            name="number"
+                            maxlength="12">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Facebook</label>
                         </div>
-                        <input type="text" class="form-control" value="" id="facebook" name="facebook">
+                        <input type="text"
+                            class="form-control"
+                            value=""
+                            id="facebook"
+                            name="facebook">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Price</label>
                         </div>
-                        <input type="number" class="form-control" value="" id="price" name="price">
+                        <input type="number"
+                            class="form-control"
+                            value=""
+                            id="price"
+                            name="price">
                         <div class="input-group-prepend">
                             <label class="input-group-text">Due Date</label>
                         </div>
-                        <select class="form-select" id="due" name="due" value="">
-                            <?php for ($i = 1; $i < 32; $i++) {
+                        <select class="form-select"
+                            id="due"
+                            name="due"
+                            value="">
+                            <?php for ( $i = 1; $i < 32; $i++ ) {
                                 echo "<option value='" . $i . "'>" . $i . "</option>";
                             }
                             ?>
@@ -308,12 +398,16 @@ if (isset($_POST['paid'])) {
                     <!--Profile-->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="profile">Profile</label>
+                            <label class="input-group-text"
+                                for="profile">Profile</label>
                         </div>
-                        <select class="form-select" id="profile" name="profile" value="">
-                            <?php $TotalReg = count($getprofile);
-                            for ($i = 0; $i < $TotalReg; $i++) {
-                                echo "<option>" . $getprofile[$i]['name'] . "</option>";
+                        <select class="form-select"
+                            id="profile"
+                            name="profile"
+                            value="">
+                            <?php $TotalReg = count( $getprofile );
+                            for ( $i = 0; $i < $TotalReg; $i++ ) {
+                                echo "<option>" . $getprofile[ $i ][ 'name' ] . "</option>";
                             }
                             ?>
                         </select>
@@ -321,13 +415,17 @@ if (isset($_POST['paid'])) {
                     <!--Server-->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="server">Server</label>
+                            <label class="input-group-text"
+                                for="server">Server</label>
                         </div>
-                        <select class="form-select" name="server" id="server" value="">
+                        <select class="form-select"
+                            name="server"
+                            id="server"
+                            value="">
                             <option>all</option>
-                            <?php $TotalReg = count($srvlist);
-                            for ($i = 0; $i < $TotalReg; $i++) {
-                                echo "<option>" . $srvlist[$i]['name'] . "</option>";
+                            <?php $TotalReg = count( $srvlist );
+                            for ( $i = 0; $i < $TotalReg; $i++ ) {
+                                echo "<option>" . $srvlist[ $i ][ 'name' ] . "</option>";
                             }
                             ?>
                         </select>
@@ -335,12 +433,21 @@ if (isset($_POST['paid'])) {
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" name="remove" id="remove" value="" class="btn btn-danger"><i
-                            class="fas fa-trash"></i> Delete</button>
-                    <button type="submit" name="disable" id="disable" value=""
+                    <button type="submit"
+                        name="remove"
+                        id="remove"
+                        value=""
+                        class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                    <button type="submit"
+                        name="disable"
+                        id="disable"
+                        value=""
                         class="btn btn-secondary">Disable</button>
-                    <button type="submit" name="edit" id="edit" value="" class="btn btn-success"><i
-                            class="fas fa-save"></i> Save</button>
+                    <button type="submit"
+                        name="edit"
+                        id="edit"
+                        value=""
+                        class="btn btn-success"><i class="fas fa-save"></i> Save</button>
                 </div>
             </form>
         </div>
@@ -352,7 +459,7 @@ if (isset($_POST['paid'])) {
     });
 
     function edit(id, name, password, status, contact, fb, price, due, profile, server, mac, disable) {
-        if(server == ""){
+        if (server == "") {
             server = "all";
         }
         $('#id,#remove,#edit').val(id);

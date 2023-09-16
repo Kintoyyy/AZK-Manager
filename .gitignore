@@ -1,3 +1,4 @@
 Desktop/webcache/
 *.sqlite
 *.log
+Desktop/www/db/sqlite-database.sqlite3

@@ -1,49 +1,4 @@
 <?php
-if ( !isset( $_ENV[ 'HTTP_SEC_CH_UA' ] ) ) { ?>
-    <!DOCTYPE html>
-    <html>
-
-    <head>
-        <style>
-            body {
-                background-color: #3498db;
-                color: #fff;
-                font-family: Arial, sans-serif;
-                text-align: center;
-                padding: 20px;
-            }
-
-            a {
-                color: #fff;
-                text-decoration: underline;
-            }
-
-            .badge {
-                background-color: #27ae60;
-                color: #fff;
-                font-size: 16px;
-                padding: 5px 10px;
-                border-radius: 5px;
-                position: absolute;
-                top: 10px;
-                right: 10px;
-            }
-        </style>
-    </head>
-
-    <body>
-        <div class="badge">Online</div>
-        <p>Server is running! <br>Open
-            <?= "<a href='http://" . $_ENV[ 'HTTP_HOST' ] . "'>" . $_ENV[ 'HTTP_HOST' ] . "</a>" ?>
-        </p>
-    </body>
-
-    </html>
-    <?php
-    $output = shell_exec( "start http://" . $_ENV[ 'HTTP_HOST' ] );
-    exit;
-}
-
 session_start();
 if ( !isset( $_SESSION[ 'loggedin' ] ) ) {
     header( 'location: login.php' );

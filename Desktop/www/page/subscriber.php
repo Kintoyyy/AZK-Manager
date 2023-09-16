@@ -105,14 +105,17 @@ if (isset($_POST['paid'])) {
                 <?php
                 foreach ($data as $client) {
                     if (isset($client['comment']) && explode(",", $client['comment'])[0] == "subscriber") {
-                        $comments = explode(",", $client['comment']);
+                        $comments =   explode(",", $client['comment']);
+
                         $id = $client['.id'];
                         $name = $client['name'];
                         $disabled = $client['disabled'];
                         $profile = $client['profile'];
                         $currency = $MikroTik['currency'];
+                        $dueDate = $comments[1] ?? 0;
                         $status = $comments[3] ?? 'Error';
-                        $amount = $comments[4] ?? null;
+                        $amount = $comments[2] ?? null;
+                        $contact = $comments[4] ?? null;
                         $fbUsername = $comments[5] ?? null;
 
                         echo '<tr>';
@@ -135,13 +138,13 @@ if (isset($_POST['paid'])) {
                         echo '</td>';
                         echo "<td>" . $profile . "</td>";
                         echo "<td>" . $currency . $amount . "</td>";
-                        echo "<td>" . number_format((int )$comments[1] ?? 0) . "</td>";
+                        echo "<td>" . number_format((int ) $dueDate ?? 0) . "</td>";
                         echo "<td>" . ($client['server'] ?? ' ') . "</td>";
                         echo "<td>" . ($client['mac-address'] ?? ' ') . "</td>";
-                        echo "<td>" . $amount ?? ''. "</td>";
+                        echo "<td>" . $contact . "</td>";
                         echo "<td><a href='https://www.facebook.com/" . $fbUsername . "'>@" . $fbUsername . "</a></td>";
                         echo '<td><button data-bs-toggle="modal" data-bs-target="#editSub" 
-                                onclick="edit(\'' . $id . '\',\'' . $name . '\',\'' . $client['password'] . '\',\'' . $status . '\',\'' . $amount . '\',\'' . $fbUsername . '\',\'' . ($comments[2] ?? '') . '\',\'' . $comments[1] . '\',\'' . $profile . '\',\'' . ($client['server'] ?? '') . '\',\'' . ($client['mac-address'] ?? '') . '\',\'' . $disabled . '\')" class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>';
+                                onclick="edit(\'' . $id . '\',\'' . $name . '\',\'' . $client['password'] . '\',\'' . $status . '\',\'' .  $contact. '\',\'' . $fbUsername . '\',\'' . $amount . '\',\'' . $comments[1] . '\',\'' . $profile . '\',\'' . ($client['server'] ?? '') . '\',\'' . ($client['mac-address'] ?? '') . '\',\'' . $disabled . '\')" class="btn btn-success btn-sm"><i class="fas fa-pen"></i> Edit</button></td>';
                         echo '</tr>';
                     }
                 }
